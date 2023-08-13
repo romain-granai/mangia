@@ -1,0 +1,55 @@
+.wrapper {
+    width: 100%;
+    padding-left: $space-xl;
+    padding-right: $space-xl;
+
+    @media (max-width: $md){
+        padding-left: $space-lg;
+        padding-right: $space-lg;
+    }
+
+    @media (max-width: $sm){
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+}
+
+.d-none {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.clean-list {
+    @include clean-list;
+}
+
+.m-top-sm {
+    margin-top: $gutter/4;
+}
+
+.m-top-md {
+    margin-top: $gutter/2;
+}
+
+.m-top-lg {
+    margin-top: $gutter/4*3;
+}
+
+.m-top-xl {
+    margin-top: $gutter;
+}

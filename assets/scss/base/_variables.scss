@@ -1,0 +1,36 @@
+$gutter: 4rem;
+
+$sm : 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1350px;
+$xxl: 1700px;
+$xxxl: 2000px;
+
+$font-brand: 'Stretto';
+$font-text: 'GT Eesti Display', sans-serif;
+$font-serif: 'Roman Grotesque';
+
+$black: #000;
+$white: #FFF;
+// $light-grey: #F6F6F6;
+// $mid-grey: #cfcfcf;
+// $dark-grey: #585858;
+$yellow: #FFD12D;
+$blue: #0078D7;
+$red: #FF445C;
+$green: #00BF72;
+
+$primary: $black;
+
+$space-xxs: $gutter/2;
+$space-xs: $gutter/3*2;
+$space-sm: $gutter;
+$space-md: $gutter/2*3;
+$space-lg: $gutter * 2;
+$space-xl: $gutter/2*5;
+$space-2xl: $gutter*3;
+$space-3xl: $gutter*5;
+$space-4xl: $gutter*6;
+
+$radius: 3rem;
