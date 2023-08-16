@@ -1,0 +1,29 @@
+.section {
+
+}
+
+.section--viewport {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+} 
+
+.section--product-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+.section--region-slider {
+    // height: 80vh;
+    height: 50vw;
+}
+
+.section--social-marquee {
+    padding: $gutter 0;
+    height: 50vh
+}
+
+.title {
+    @include fs-xxl-clamp;
+    line-height: 1.15;
+}

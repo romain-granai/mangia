@@ -1,0 +1,43 @@
+.block--intro {
+    display: flex;
+    padding: $gutter;
+    min-height: 85svh;
+    overflow: hidden;
+}
+
+.intro {
+    position: relative;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+        @include fs-md;
+        font-family: $font-serif;
+        text-transform: uppercase;
+    }
+}
+
+.intro__title {
+    width: 65%;
+}
+
+.intro__circle {
+    --speed: 20s;
+    position: absolute;
+    bottom: $gutter;
+    right: $gutter;
+    width: 25%;
+    animation: turn var(--speed) linear infinite;
+}
+
+// @keyframes turn {
+//     from {
+//         transform: rotate(0) translate3d(0, 0, 0);
+//     }
+
+//     to {
+//         transform: rotate(-360deg) translate3d(0, 0, 0);
+//     }
+// }

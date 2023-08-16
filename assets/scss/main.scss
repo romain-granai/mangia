@@ -1,14 +1,25 @@
 @import "vendor/_normalize";
 @import "vendor/_swiper";
+@import "vendor/_lenis";
+@import "vendor/_infinite-marquee";
 
 @import "base/_variables";
 @import "base/_mixins";
 @import "base/_typography";
 @import "base/_helpers";
+@import "base/_animations";
 
+@import "small-components/_buttons";
+@import "small-components/_curtain";
 @import "small-components/_media";
 
 @import "big-components/_topbar";
+@import "big-components/_block";
+@import "big-components/_block-intro";
+@import "big-components/_block-product";
+@import "big-components/_block-full-img";
+@import "big-components/_block-region-slider";
+@import "big-components/_block-social-marquee";
 
 @import "templates/_header";
 @import "templates/_main";
