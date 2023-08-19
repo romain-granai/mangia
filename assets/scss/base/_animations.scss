@@ -50,6 +50,35 @@
     }
 }
 
+@keyframes smallBounceColor {
+    0%,
+    20%,
+    53%,
+    to {
+        animation-timing-function:cubic-bezier(.215,.61,.355,1);
+        transform:translateZ(0);
+        color: $black
+    }
+    40%,
+    43% {
+        animation-timing-function:cubic-bezier(.755,.05,.855,.06);
+        transform:translate3d(0,-25%,0) scaleY(1.1);
+        color: $yellow;
+    }
+    70% {
+        animation-timing-function:cubic-bezier(.755,.05,.855,.06);
+        transform:translate3d(0,-12.5%,0) scaleY(1.05)
+    }
+    80% {
+        transform:translateZ(0) scaleY(.95);
+        transition-timing-function:cubic-bezier(.215,.61,.355,1)
+    }
+    90% {
+        transform:translate3d(0,-4px,0) scaleY(1.02);
+        color: $black;
+    }
+}
+
 @keyframes fullCircle {
     from {
         transform: translateZ(0) rotate(0);

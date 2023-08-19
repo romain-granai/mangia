@@ -1,7 +1,7 @@
 .curtain {
     --curtain-bg: #{$yellow};
-    --top-left-clip: 0;
-    --top-right-clip: 0;
+    --top-left-clip: 100%;
+    --top-right-clip: 100%;
     --bottom-left-clip: 100%;
     --bottom-right-clip: 100%;
     position: fixed;
@@ -66,4 +66,14 @@
         animation-delay: .3s;
     }
 
+}
+
+.white-curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $black;
+    z-index: 999;
 }

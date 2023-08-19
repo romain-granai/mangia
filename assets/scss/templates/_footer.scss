@@ -18,6 +18,7 @@
 .footer__legal {
     transition: .35s cubic-bezier(.68,-0.55,.27,1.55) .3s;
     order: 2;
+    margin-bottom: -6rem;
 }
 
 .footer__logo {
@@ -219,7 +220,9 @@
     width: 100%;
     border: none;
     border-bottom: 2px solid $black;
-    padding: $gutter/4 $gutter/2;
+    padding: .5em $gutter/2;
+    // border-radius: .33rem;
+    @include fs-lg;
     outline: none;
     background-color: transparent;
     transition: .35s cubic-bezier(.68,-0.55,.27,1.55);

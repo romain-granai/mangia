@@ -1,0 +1,17 @@
+.block--just-text {
+    padding: $gutter;
+    height: 1px;
+    min-height: 100svh;
+
+    p {
+        width: 100%;
+        max-width: 175rem;
+    }
+}
+
+.just-text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

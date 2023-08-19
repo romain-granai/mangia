@@ -6,3 +6,4 @@
 //@prepros-append vendor/imagesloaded.js
 //@prepros-append vendor/swiper.js
 //@prepros-append vendor/lenis.js
+//@prepros-append vendor/splitText.js

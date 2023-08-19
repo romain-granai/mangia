@@ -19,9 +19,17 @@
     aspect-ratio: 1;
     border-radius: 50%;
     border: 4px solid $black;
-    overflow: hidden;
+    
     margin-bottom: $gutter;
     background-color: $yellow;
+
+    &__in {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
 
     img {
         position: absolute; 
@@ -61,6 +69,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     transition: all .35s cubic-bezier(.68,-0.55,.27,1.55);
 
     &.is-active {
@@ -106,6 +117,9 @@
     bottom: 0;
     width: 85%;
     aspect-ratio: 2/1;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     z-index: -1;
 
 

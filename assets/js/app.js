@@ -45,12 +45,16 @@ $(document).ready(function () {
                     onComplete: function(){
                         lenis.start()
                         $('.curtain').removeClass('curtain__logo--is-animating');
+                        gsap.set('.curtain', {'--top-left-clip': '100%', '--top-right-clip': '100%', '--bottom-left-clip': '100%', '--bottom-right-clip': '100%'});
                     }
                 });
-                introAnim   .set('.curtain', {className: 'curtain curtain__logo--is-animating'}, 'logo-animation')
-                            .to('.curtain', {duration: 1, '--bottom-right-clip': 0, ease: Power4.easeInOut }, 'logo-animation+=.75')
-                            .to('.curtain', {duration: 1, '--bottom-left-clip': 0, ease: Power4.easeInOut }, 'logo-animation+=.75');
-                
+                introAnim   .to('.curtain', {duration: .75, '--top-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top')
+                            .to('.curtain', {duration: .75, '--top-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=.05')
+                            .fromTo('.curtain__logo', {duration: .75, autoAlpha: 0}, {autoAlpha: 1}, 'bottom-to-top+=.25')
+                            .set('.curtain', {className: 'curtain curtain__logo--is-animating'}, 'bottom-to-top+=.1')
+                            .set('.white-curtain', {autoAlpha: 0, display: 'none'}, 'bottom-to-top+=1.05')
+                            .to('.curtain', {duration: .75, '--bottom-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=1')
+                            .to('.curtain', {duration: .75, '--bottom-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=1.05');
                 
                 // animLogo.timeScale(0.8);
                 introAnim.play();
@@ -174,6 +178,8 @@ $(document).ready(function () {
     introBlock();
     regionSlider();
     socialMarquee();
+    curtainColor();
+    pastaForm();
 
 
 
@@ -425,10 +431,10 @@ $(document).ready(function () {
             e.preventDefault(); // prevent the default action (scroll / move caret)
         };
         
-        $('.prev-next button').on('click', function(e){
+        $('.region-slider .prev-next button').on('click', function(e){
             e.preventDefault();
             
-            if($(this).hasClass('prev')){
+            if($(this).hasClass('prev-next__arrow--prev')){
                 if(!isAnimating){
                     getPrev();
                 }
@@ -504,5 +510,24 @@ $(document).ready(function () {
             });
 
       });
-    }
+    };
+
+    function curtainColor(){
+        $('[data-curtain]').on('click', function(){
+            var thisColor = $(this).data('curtain');
+            
+            gsap.set('.curtain', {'--curtain-bg': thisColor});
+        });
+    };
+
+    function pastaForm(){
+        $('.pasta-form .wpcf7-list-item-label').each(function () {
+            var split = $(this).splitText({ type: 'letters', useLite: true });
+            // var words = $(this).find('span');
+            // var parentIndex = $(this).parents('.section').index();
+
+            
+        });
+    };
+
 });
