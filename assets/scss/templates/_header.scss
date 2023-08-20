@@ -17,6 +17,10 @@
     bottom: 0;
     width: 100%;
     padding: $gutter;
+
+    @media (max-width: $sm){
+        padding: $gutter/2;
+    }
 }
 
 .header__logo__svg {

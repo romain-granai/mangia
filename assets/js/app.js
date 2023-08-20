@@ -172,6 +172,7 @@ $(document).ready(function () {
     );
 
     topbar();
+    mobileNav();
     scrollHeader();
     scrollProducts();
     footer();
@@ -219,6 +220,35 @@ $(document).ready(function () {
 
             }
         });
+    };
+
+    function mobileNav(){
+        var $burger = $('.burger');
+
+        $burger.on('click', function(e){
+            e.preventDefault();
+
+            $(this).toggleClass('burger--close');
+            $('.mobile-nav').toggleClass('mobile-nav--is-open');
+
+            if($(this).hasClass('burger--close')){
+                lenis.stop();
+            } else {
+                lenis.start();
+            }
+
+        });
+
+        var resizeDebounce = debounce(function() {
+            if(window.innerWidth > 768){
+                $('.burger').removeClass('burger--close');
+                $('.mobile-nav').removeClass('mobile-nav--is-open');
+                lenis.start();
+            };
+        }, 100);
+        
+        $(window).on('resize', resizeDebounce)
+
     };
 
     function scrollHeader(){
@@ -528,6 +558,21 @@ $(document).ready(function () {
 
             
         });
+    };
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
     };
 
 });

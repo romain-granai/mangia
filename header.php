@@ -67,8 +67,24 @@
 
     <nav class="topbar__nav topbar__nav--right">
       <ul>
-        <li><a href="#" title="Our Pasta">Our Pasta</a></li>
-        <li><a href="#" title="Antichi Grani">Antichi Grani</a></li>
+        <li><a href="#" title="Our Pasta">Our Story</a></li>
+        <li><a href="#" title="Antichi Grani">Account</a></li>
       </ul>
     </nav>
+
+    <button class="burger">
+        <span class="burger__bar burger__bar--top"></span>
+        <span class="burger__bar burger__bar--middle"></span>
+        <span class="burger__bar burger__bar--bottom"></span>
+    </button>
+
   </div>
+
+  <nav class="mobile-nav">
+    <ul>
+      <li><a href="" title="">Our Pasta</a></li>
+      <li><a href="" title="">Antichi Grani</a></li>
+      <li><a href="" title="">Our Story</a></li>
+      <li><a href="" title="">Account</a></li>
+    </ul>
+  </nav>

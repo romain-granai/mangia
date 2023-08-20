@@ -1,0 +1,51 @@
+.burger {
+    position: absolute;
+    top: calc(#{$gutter/2} + 2px);
+    right: $gutter;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - #{$gutter} - 4px);
+    aspect-ratio: 1.1/1;
+    padding: 0;
+    background-color: $white;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: $md){
+        display: flex;
+        right: $gutter/2;
+    }
+}
+
+.burger__bar {
+    width: 100%;
+    height: 4px;
+    background-color: $black;
+
+    &--top {
+
+    }
+
+    &--middle {
+
+    }
+
+    &--bottom {
+
+    }
+
+    .burger--close & {
+        &--middle {
+            display: none;
+        }
+
+        &--top {
+            transform: translate3d(0, 290%, 0) rotate(45deg);
+        }
+
+        &--bottom {
+            transform: translate3d(0, -290%, 0) rotate(-45deg);
+        }
+    }
+}

@@ -41,6 +41,16 @@ background-image:  repeating-linear-gradient(45deg, $green 25%, transparent 25%,
         background-size: 1000% 100%;
         animation: animBg 200s linear infinite reverse;
     }
+
+    @media (orientation: portrait) {
+        flex-direction: column;
+        justify-content: flex-end;
+
+    }
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
+    }
 }
 
 .product-slide__media {
@@ -53,6 +63,11 @@ background-image:  repeating-linear-gradient(45deg, $green 25%, transparent 25%,
         height: 100%;
         object-fit: cover;
         object-position: center;
+    }
+
+    @media (orientation: portrait) {
+        height: 50%;
+        width: 100%;
     }
 }
 
@@ -85,6 +100,10 @@ background-image:  repeating-linear-gradient(45deg, $green 25%, transparent 25%,
     width: 100%;
     height: 100%;
     text-align: center;
+
+    @media (orientation: portrait) {
+        height: 50%;
+    }
 }
 
 .product-slide__sup {

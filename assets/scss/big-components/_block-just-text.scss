@@ -7,6 +7,10 @@
         width: 100%;
         max-width: 175rem;
     }
+
+    @media (max-width: $sm){
+        padding: $gutter/2;
+    }
 }
 
 .just-text {

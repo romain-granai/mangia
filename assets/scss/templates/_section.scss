@@ -2,6 +2,57 @@
 
 }
 
+.section--top-b,
+.section--bottom-b,
+.section--both-b {
+    position: relative;
+
+    &:before,
+    &:after {
+        position: absolute;
+        display: block;
+        left: $gutter;
+        width: calc(100% - #{$gutter * 2});
+        height: 4px;
+        background: repeating-linear-gradient(90deg, $white, $white 10px, $black 10px, $black 20px);
+
+        @media (max-width: $sm){
+            left: $gutter/2;
+            width: calc(100% - #{$gutter});
+        }
+    }
+}
+
+.section--top-b {
+
+    &:before {
+        content: "";
+        top: -2px;
+    }
+
+}
+
+.section--bottom-b {
+    &:after {
+        content: "";
+        bottom: 2px;
+    }
+}
+
+.section--both-b {
+
+    &:before {
+        content: "";
+        top: -2px;
+    }
+
+    &:after {
+        content: "";
+        bottom: 2px;
+    }
+
+}
+
 .section--viewport {
     width: 100%;
     height: 100vh;
@@ -15,7 +66,7 @@
 
 .section--region-slider {
     // height: 80vh;
-    height: 50vw;
+    // height: 50vw;
 }
 
 .section--social-marquee {

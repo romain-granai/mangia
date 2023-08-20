@@ -1,11 +1,10 @@
 @font-face {
     font-family: 'Stretto';
-    src:    url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.eot");
-    src:    url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.eot?#iefix")format("embedded-opentype"),
-            url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.woff2")format("woff2"),
-            url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.woff")format("woff"),
-            url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.ttf")format("truetype"),
-            url("https://db.onlinewebfonts.com/t/576f1383dc43d7832d227c61f02e0939.svg#Stretto W01 Regular")format("svg");
+    src:    url("../fonts/Stretto-Regular.eot");
+    src:    url("../fonts/Stretto-Regular.eot?#iefix")format("embedded-opentype"),
+            url("../fonts/Stretto-Regular.woff2")format("woff2"),
+            url("../fonts/Stretto-Regular.woff")format("woff"),
+            url("../fonts/Stretto-Regular.ttf")format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -25,11 +24,11 @@
 
 @font-face {
     font-family: 'Roman Grotesque';
-    src: url('../fonts/RomanGrotesqueTEST-Bold.eot');
-    src: url('../fonts/RomanGrotesqueTEST-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/RomanGrotesqueTEST-Bold.woff2') format('woff2'),
-        url('../fonts/RomanGrotesqueTEST-Bold.woff') format('woff'),
-        url('../fonts/RomanGrotesqueTEST-Bold.ttf') format('truetype');
+    src: url('../fonts/RomanGrotesque-Bold.eot');
+    src: url('../fonts/RomanGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/RomanGrotesque-Bold.woff2') format('woff2'),
+        url('../fonts/RomanGrotesque-Bold.woff') format('woff'),
+        url('../fonts/RomanGrotesque-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;

@@ -25,13 +25,13 @@
       </div>
     </header>
     <main class="main">
-      <section class="section section--button section--viewport"
+      <!-- <section class="section section--button section--viewport"
         style="background-color: grey; align-items: center; justify-content: center">
         <a href="#" class="btn"><span>Click Me</span></a>
         <a href="#" class="btn btn--uppercase"><span>Click Me</span></a>
         <a href="#" class="btn btn--is-light"><span>Click Me</span></a>
         <a href="#" class="btn"><span>Click Me</span></a>
-      </section>
+      </section> -->
       <section class="section section--just-text">
         <div class="block block--just-text">
           <div class="just-text">
@@ -232,7 +232,7 @@
             </div>
             <div class="product-slide__front">
               <span class="product-slide__sup">Antichi Grani<br> from Sicily<br> –timilia<sup>®</sup>–</span>
-              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #FF445C" data-curtain="#FF445C"><span>Click Me</span></a>
+              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #FF445C" data-curtain="#FF445C"><span>EAT ME!</span></a>
               <h2 class="product-slide__title">
                 <a href="#" title="Penne">
                   <span class="product-slide__letter">P</span>
@@ -254,7 +254,7 @@
             </div>
             <div class="product-slide__front">
               <span class="product-slide__sup">Antichi Grani<br> from Sicily<br> –timilia<sup>®</sup>–</span>
-              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #00BF72" data-curtain="#00BF72"><span>Click Me</span></a>
+              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #00BF72" data-curtain="#00BF72"><span>EAT ME!</span></a>
               <h2 class="product-slide__title">
                 <a href="#" title="ORECCHIETTE">
                   <span class="product-slide__letter product-slide__letter--upper">O</span>
@@ -282,7 +282,7 @@
             </div>
             <div class="product-slide__front">
               <span class="product-slide__sup">Antichi Grani<br> from Sicily<br> –timilia<sup>®</sup>–</span>
-              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #0078D7" data-curtain="#0078D7"><span>Click Me</span></a>
+              <a href="#" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: #0078D7" data-curtain="#0078D7"><span>EAT ME!</span></a>
               <h2 class="product-slide__title">
                 <a href="#" title="Penne">
                   <span class="product-slide__letter">P</span>
@@ -297,97 +297,99 @@
           </div>
         </div>
       </section>
-      <section class="section section--pasta-form">
+      <section class="section section--pasta-form section--bottom-b">
         <div class="block block--pasta-form">
           <div class="pasta-form">
-            <h2 class="intro__title title">Help us cook up something extraordinary. Tell us the future pasta you crave!</h2>
+            <h2 class="intro__title title">Help us cook up something extraordinary.<br> Tell us the future pasta you crave!</h2>
             <?php echo do_shortcode( '[contact-form-7 id="a0ff853" title="New Pasta Form"]' ); ?>
           </div>
         </div>
       </section>
-      <section class="section section--region-slider">
+      <section class="section section--region-slider section--bottom-b">
         <div class="block block--region-slider">
           <div class="region-slider">
-            <div class="region-slider__media">
-              <div class="prev-next">
-                <button class="prev-next__arrow prev-next__arrow--prev">→</button>
-                <button class="prev-next__arrow prev-next__arrow--next">→</button>
+            <div class="region-slider__bottom">
+              <div class="region-slider__media">
+                <div class="prev-next">
+                  <button class="prev-next__arrow prev-next__arrow--prev">→</button>
+                  <button class="prev-next__arrow prev-next__arrow--next">→</button>
+                </div>
+                <div class="region-slider__media__in">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-2.jpg"
+                    class="is-active" alt="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-1.jpg" alt="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-3.jpg" alt="">
+                </div>
               </div>
-              <div class="region-slider__media__in">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-2.jpg"
-                  class="is-active" alt="">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-1.jpg" alt="">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-3.jpg" alt="">
-              </div>
-            </div>
-            <div class="region-slider__infos">
-              <div class="region-slider__info is-active">
-                <h2 class="region-slider__title">
-                  <span class="region-slider__letter">R</span>
-                  <span class="region-slider__letter">a</span>
-                  <span class="region-slider__letter">g</span>
-                  <span class="region-slider__letter">u</span>
-                  <span class="region-slider__letter">s</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">-</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">S</span>
-                  <span class="region-slider__letter">i</span>
-                  <span class="region-slider__letter">c</span>
-                  <span class="region-slider__letter">i</span>
-                  <span class="region-slider__letter">l</span>
-                  <span class="region-slider__letter">y</span>
-                </h2>
-                <span class="region-slider__sub">by <br> Giuseppe Di Rossi</span>
-              </div>
-              <div class="region-slider__info">
-                <h2 class="region-slider__title">
-                  <span class="region-slider__letter">P</span>
-                  <span class="region-slider__letter">o</span>
-                  <span class="region-slider__letter">u</span>
-                  <span class="region-slider__letter">l</span>
-                  <span class="region-slider__letter">s</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">u</span>
-                  <span class="region-slider__letter">r</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">-</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">B</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">l</span>
-                  <span class="region-slider__letter">g</span>
-                  <span class="region-slider__letter">i</span>
-                  <span class="region-slider__letter">u</span>
-                  <span class="region-slider__letter">m</span>
-                </h2>
-                <span class="region-slider__sub">by <br> Romain Granai</span>
-              </div>
-              <div class="region-slider__info">
-                <h2 class="region-slider__title">
-                  <span class="region-slider__letter">G</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">n</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">v</span>
-                  <span class="region-slider__letter">a</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">-</span>
-                  <span class="region-slider__letter">&nbsp;</span>
-                  <span class="region-slider__letter">S</span>
-                  <span class="region-slider__letter">w</span>
-                  <span class="region-slider__letter">i</span>
-                  <span class="region-slider__letter">t</span>
-                  <span class="region-slider__letter">z</span>
-                  <span class="region-slider__letter">e</span>
-                  <span class="region-slider__letter">r</span>
-                  <span class="region-slider__letter">l</span>
-                  <span class="region-slider__letter">a</span>
-                  <span class="region-slider__letter">n</span>
-                  <span class="region-slider__letter">d</span>
-                </h2>
-                <span class="region-slider__sub">by <br> Luc Vega</span>
+              <div class="region-slider__infos">
+                <div class="region-slider__info is-active">
+                  <h2 class="region-slider__title">
+                    <span class="region-slider__letter">R</span>
+                    <span class="region-slider__letter">a</span>
+                    <span class="region-slider__letter">g</span>
+                    <span class="region-slider__letter">u</span>
+                    <span class="region-slider__letter">s</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">-</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">S</span>
+                    <span class="region-slider__letter">i</span>
+                    <span class="region-slider__letter">c</span>
+                    <span class="region-slider__letter">i</span>
+                    <span class="region-slider__letter">l</span>
+                    <span class="region-slider__letter">y</span>
+                  </h2>
+                  <span class="region-slider__sub">by <br> Giuseppe Di Rossi</span>
+                </div>
+                <div class="region-slider__info">
+                  <h2 class="region-slider__title">
+                    <span class="region-slider__letter">P</span>
+                    <span class="region-slider__letter">o</span>
+                    <span class="region-slider__letter">u</span>
+                    <span class="region-slider__letter">l</span>
+                    <span class="region-slider__letter">s</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">u</span>
+                    <span class="region-slider__letter">r</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">-</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">B</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">l</span>
+                    <span class="region-slider__letter">g</span>
+                    <span class="region-slider__letter">i</span>
+                    <span class="region-slider__letter">u</span>
+                    <span class="region-slider__letter">m</span>
+                  </h2>
+                  <span class="region-slider__sub">by <br> Romain Granai</span>
+                </div>
+                <div class="region-slider__info">
+                  <h2 class="region-slider__title">
+                    <span class="region-slider__letter">G</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">n</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">v</span>
+                    <span class="region-slider__letter">a</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">-</span>
+                    <span class="region-slider__letter">&nbsp;</span>
+                    <span class="region-slider__letter">S</span>
+                    <span class="region-slider__letter">w</span>
+                    <span class="region-slider__letter">i</span>
+                    <span class="region-slider__letter">t</span>
+                    <span class="region-slider__letter">z</span>
+                    <span class="region-slider__letter">e</span>
+                    <span class="region-slider__letter">r</span>
+                    <span class="region-slider__letter">l</span>
+                    <span class="region-slider__letter">a</span>
+                    <span class="region-slider__letter">n</span>
+                    <span class="region-slider__letter">d</span>
+                  </h2>
+                  <span class="region-slider__sub">by <br> Luc Vega</span>
+                </div>
               </div>
             </div>
             <div class="region-slider__circles">

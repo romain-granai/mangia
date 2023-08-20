@@ -1,8 +1,12 @@
 .block--pasta-form {
-    padding: $gutter;
+    padding: $gutter*2 $gutter;
 
     .title {
         margin-bottom: $gutter*2;
+    }
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
     }
 }
 
@@ -11,6 +15,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: $gutter;
+
+        @media (max-width: $lg){
+            grid-template-columns: 1fr;
+        }
     }
 
     .wpcf7-list-item {
@@ -27,8 +35,8 @@
         &:before {
             content: "";
             display: inline-block;
-            width: .57em;
-            height: .57em;
+            width: calc(0.57em - 20px);
+            height: calc(0.57em - 20px);
             padding: 10px;
             border: 4px solid $black;
             border-radius: .6rem;
@@ -83,12 +91,21 @@
         p {
             position: relative;
             flex: 0 0 calc(50% - #{$gutter/2});
+
+            @media (max-width: $lg){
+                flex: 0 0 100%;
+                margin-top: $gutter;
+            }
         }
     }
 
     .btn {
         transform: translate3d(0, -100%, 0);
         width: 100%;
+
+        @media (max-width: $lg){
+            transform: none;
+        }
     }
 
     .wpcf7-spinner {

@@ -11,6 +11,10 @@
         justify-content: space-between;
         width: calc(100% + #{$gutter * 4});
         z-index: 10;
+
+        @media (max-width: $md){
+            width: calc(100% + #{$gutter * 2});
+        }
     }
 
 }
@@ -26,9 +30,10 @@
     background-color: $white;
     color: $yellow;
     border: 2px solid $black;
+    padding: 0;
     font-family: $font-text;
     transform: translate3d(0, 0, 0) scale(1);
-    transition: all 0.15s cubic-bezier(0.68,-0.55,0.27,1.55);
+    transition: transform 0.15s cubic-bezier(0.68,-0.55,0.27,1.55), background-color 0.15s cubic-bezier(0.68,-0.55,0.27,1.55);
 
 
 
@@ -57,5 +62,13 @@
     &:hover {
         color: $black;
         background-color: $yellow;
+    }
+
+    .region-slider & {
+
+        @media (max-width: $md){
+            width: 2.4rem;
+            height: 2.4rem;
+        }
     }
 }

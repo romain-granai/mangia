@@ -5,6 +5,10 @@
     background-color: $yellow;
     padding: $gutter* 2 $gutter $gutter;
     overflow: hidden;
+
+    @media (max-width: $sm){
+        padding: $gutter* 2 $gutter/2 $gutter;
+    }
 }
 
 .footer__nl {
@@ -189,17 +193,34 @@
 .footer__form {
     display: flex;
     flex-direction: column;
+
+
     
 }
 
 .footer__nl__top {
     display: flex;
     align-items: center;
+
+    @media (max-width: $lg){
+        flex-wrap: wrap;
+    }
 }
 
 .footer__nl__title {
     order: 1;
     white-space: nowrap;
+
+    @media (max-width: $lg){
+        flex: 0 0 100%;
+        max-width: 100%;
+        // text-align: right;
+        margin-bottom: 1em;
+    }
+
+    @media (max-width: $sm){
+        margin-bottom: .25em;
+    }
 }
 
 .footer__nl__field {
@@ -213,6 +234,26 @@
         top: 100%;
         right: 0;
         padding: $gutter/4 $gutter/2;
+        @include fs-smallest;
+    }
+
+    @media (max-width: $lg){
+        padding: 0 $gutter/2 0 0;
+        flex: 1 0 50%;
+    }
+
+    @media (max-width: $sm){
+        padding: 0;
+        margin-bottom: $gutter/4;
+        flex: 1 0 50%;
+
+        div.mce_inline_error {
+            // position: unset;
+            padding: $gutter/4 ;
+            
+            top: 0;
+            pointer-events: none;
+        }
     }
 }
 
@@ -221,7 +262,7 @@
     border: none;
     border-bottom: 2px solid $black;
     padding: .5em $gutter/2;
-    // border-radius: .33rem;
+    border-radius: 0;
     @include fs-lg;
     outline: none;
     background-color: transparent;
@@ -241,4 +282,8 @@
 
 .footer__nl__submit {
     order: 3;
+
+    @media (max-width: $sm){
+        width: 100%;
+    }
 }
