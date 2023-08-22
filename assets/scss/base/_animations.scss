@@ -87,3 +87,21 @@
         transform: translateZ(0) rotate(360deg);
     }
 }
+
+@keyframes animBg {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+ }
+
+ @keyframes animBgChess {
+    0% {
+        background-position: 0 0, 20vw 20vw;
+    }
+    100% {
+        background-position: 20vw 20vw, 40vw 40vw;
+    }
+ }

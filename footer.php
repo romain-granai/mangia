@@ -41,7 +41,7 @@
         type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
     </div>
 
-    <a href="#" class="footer__logo">
+    <a href="<?php echo get_home_url(); ?>" class="footer__logo">
       <svg class="footer__logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1131 276">
         <g>
           <path class="footer__logo__letter"
@@ -88,7 +88,7 @@
 
   
     <?php wp_footer(); ?>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendors.min.js"></script>
+  <!-- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendors.min.js"></script> -->
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js" type="module"></script>
 
 </body>

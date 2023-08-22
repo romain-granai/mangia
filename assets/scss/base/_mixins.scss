@@ -74,12 +74,25 @@
     }
 
 @mixin fs-biggest-clamp {
-    font-size: 450px;
-    font-size: 45rem;
+    font-size: 300px;
+    font-size: 30rem;
     font-size: min(max(40px, 19.842vw), 450px);
     font-size: clamp(40px, 19.842vw, 450px);
     font-size: min(max(4em, 19.842vw), 45em);
     font-size: clamp(4em, 19.842vw, 45em);
+
+    // @media (max-width: $sm){
+    //     @include fs-xl;
+    // }
+}
+
+@mixin fs-biggest-clamp--half {
+    font-size: 150px;
+    font-size: 15rem;
+    font-size: min(max(40px, 10vw), 150px);
+    font-size: clamp(40px, 10vw, 150px);
+    font-size: min(max(4em, 10vw), 15em);
+    font-size: clamp(4em, 10vw, 15em);
 
     // @media (max-width: $sm){
     //     @include fs-xl;
@@ -224,3 +237,26 @@
         }
     }
 }
+
+@mixin background-anim-1 {
+    --color: #{$red};
+    background: repeating-linear-gradient(80deg,$white 0%,$white .75%,var(--color) .75%,var(--color) 2%);
+    background-size: 1000% 100%;
+    animation: animBg 200s linear infinite;
+}
+
+@mixin background-anim-2 {
+    --color: #{$green};
+    background-image:  repeating-linear-gradient(45deg, var(--color) 25%, transparent 25%, transparent 75%, var(--color) 75%, var(--color)), repeating-linear-gradient(45deg, var(--color) 25%, transparent 25%, transparent 75%, var(--color) 75%, var(--color));
+    background-position: 0 0, 20vw 20vw;
+    background-size: 40vw 40vw;
+    animation: animBgChess 8s linear infinite;
+}
+
+@mixin background-anim-3 {
+    --color: #{$blue};
+    background: repeating-linear-gradient(50deg,$white 0%,$white 1%,var(--color) 1%,var(--color) 2%);
+    background-size: 1000% 100%;
+    animation: animBg 200s linear infinite reverse;
+}
+

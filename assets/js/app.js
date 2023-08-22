@@ -32,22 +32,24 @@ $(document).ready(function () {
 
     lenis.stop();
 
+    barba.use(barbaPrefetch);
+
     barba.init({
         preventRunning: true,
         transitions: [{
             name: 'switch',
             once({current, next, trigger}) {
-                console.log('OPEN ANIMATION ONCE');
+                console.log('GLOBAL ONCE');
+
                 var introAnim = gsap.timeline({
-                    paused: true, 
-                    // delay: .5, 
-                    // onStart: function(){},
+                    paused: true,
                     onComplete: function(){
                         lenis.start()
                         $('.curtain').removeClass('curtain__logo--is-animating');
                         gsap.set('.curtain', {'--top-left-clip': '100%', '--top-right-clip': '100%', '--bottom-left-clip': '100%', '--bottom-right-clip': '100%'});
                     }
                 });
+
                 introAnim   .to('.curtain', {duration: .75, '--top-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top')
                             .to('.curtain', {duration: .75, '--top-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=.05')
                             .fromTo('.curtain__logo', {duration: .75, autoAlpha: 0}, {autoAlpha: 1}, 'bottom-to-top+=.25')
@@ -56,15 +58,16 @@ $(document).ready(function () {
                             .to('.curtain', {duration: .75, '--bottom-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=1')
                             .to('.curtain', {duration: .75, '--bottom-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=1.05');
                 
-                // animLogo.timeScale(0.8);
-                introAnim.play();
-                isOnce = true;
-
-                // var nextPageTitle = $(next.html).find('.page-top-bar-info').html();
-                // $('.page-name').empty().html(nextPageTitle);
                 
+                introAnim.play();
+
+                mobileNav();
+                topbar();
+                footer();
+            
             },
             leave({current, next, trigger}) {
+                console.log('GLOBAL LEAVE');
 
                return new Promise(resolve => {
                     const leavingAnim = gsap.timeline({
@@ -73,32 +76,34 @@ $(document).ready(function () {
                         }
                     });
 
-                    leavingAnim .to('.bottom-bar', 1, {y: 0, ease: Expo.easeInOut}, 'leaving')
-                                .to('.page-name', 1, {y: '10px', autoAlpha: 0, ease: Expo.easeOut}, 'leaving')
-                                .to(current.container, 1, {autoAlpha: 0, display: 'none', ease: Expo.easeInOut}, 'leaving');
+                    leavingAnim .to('.curtain', {duration: .75, '--top-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top')
+                                .to('.curtain', {duration: .75, '--top-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=.05')
+                                .fromTo('.curtain__logo', {duration: .75, autoAlpha: 0}, {autoAlpha: 1}, 'bottom-to-top+=.25')
+                                .set('.curtain', {className: 'curtain curtain__logo--is-animating'}, 'bottom-to-top+=.1')
+                                .set(current.container, { autoAlpha: 0, display: 'none'})
+                                .set('.white-curtain', {autoAlpha: 0, display: 'none'}, 'bottom-to-top+=1.05');
                 });
             },
             beforeLeave({current, next, trigger}){
+                console.log('GLOBAL BEFORE LEAVE');
+
                 
-                setTimeout(function(){ 
-                    $('.top-bar').removeClass('top-bar--transparent');
-                    $('.bottom-bar').removeClass('bottom-bar--light') 
-                }, 500);
                 
             },
             beforeEnter({current, next, trigger}) {
-                // console.log('BEFORE ENTER GLOBAL')
-                // window.scrollTo(0, 0);
+                console.log('GLOBAL BEFORE ENTER');
 
-                // killAllScrollTrigger();
+                window.scrollTo(0, 0);
 
-                // isOnce = false;
+                killAllScrollTrigger();
 
-                // global();
+                gsap.set('.topbar__logo__letter, .footer__logo g', {clearProps: 'all'});
+                topbar();
+                footer();
+
             },
             enter({current, next, trigger}) {
-                // var nextPageTitle = $(next.html).find('.page-top-bar-info').html();
-                // $('.page-name').empty().html(nextPageTitle);
+                console.log('GLOBAL ENTER');
 
                 preventSamePageReload();
 
@@ -107,22 +112,58 @@ $(document).ready(function () {
                     const enterAnim = gsap.timeline({
                         onComplete(){
                             resolve();
-                            navIsOpen = false;
-                            openNav.restart().pause();
+                            
+                            $('.curtain').removeClass('curtain__logo--is-animating');
+                            gsap.set('.curtain', {'--top-left-clip': '100%', '--top-right-clip': '100%', '--bottom-left-clip': '100%', '--bottom-right-clip': '100%', clearProps: '--curtain-bg'});
                         }
                     });
 
-                    enterAnim   .to('.bottom-bar', 1, {y: ()=>{ return - $('.bottom-bar > a').outerHeight(true) + 'px'}, ease: Expo.easeInOut}, 'entering')
-                                .fromTo('.page-name', 1, {y: '-10px', autoAlpha: 0}, {y: 0, autoAlpha: 1, ease: Expo.easeOut}, 'entering')
-                                .fromTo(next.container, 1, {autoAlpha: 0}, {autoAlpha: 1, ease: Expo.easeInOut}, 'entering');
+                    enterAnim   .fromTo(next.container, 0, {autoAlpha: 0}, {autoAlpha: 1, ease: Expo.easeInOut})
+                                .to('.curtain', {duration: .75, '--bottom-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top')
+                                .to('.curtain', {duration: .75, '--bottom-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=.05');
                 });
             }
         }],
-        // views: [{
-        //     namespace: 'home',
-        //     beforeEnter(data) {
-        //         home();
-        //     }
+        views: [{
+            namespace: 'home',
+            beforeEnter(data) {
+                var cf7Form = $(data.next.container).find('.wpcf7-form')[0];
+
+                setTimeout(function(){
+
+                    scrollHeader();
+                    introBlock();
+                    scrollProducts();
+                    regionSlider();
+                    socialMarquee();
+                    curtainColor();
+                    pastaForm();
+                    // initContactForm7(form);
+                    reInitCF7(cf7Form);
+
+
+                    
+
+                    
+
+                    
+                    
+                    
+
+                }, 200);
+                
+            }
+        },{
+            namespace: 'single-product',
+            beforeEnter(data) {
+                
+                setTimeout(function(){
+
+                    productSwiper();
+
+                }, 200);
+            }
+        }]
 
         //   }, {
         //     namespace: 'projects',
@@ -171,16 +212,17 @@ $(document).ready(function () {
     
     );
 
-    topbar();
-    mobileNav();
-    scrollHeader();
-    scrollProducts();
-    footer();
-    introBlock();
-    regionSlider();
-    socialMarquee();
-    curtainColor();
-    pastaForm();
+    // topbar();
+    // mobileNav();
+    // scrollHeader();
+    // scrollProducts();
+    // footer();
+    // introBlock();
+    // regionSlider();
+    // socialMarquee();
+    // curtainColor();
+    // pastaForm();
+    // productSwiper();
 
 
 
@@ -252,38 +294,10 @@ $(document).ready(function () {
     };
 
     function scrollHeader(){
-        // var topBarLogoW = $('.topbar__logo').innerWidth() / 100 * 75;
-        // var headerLogoW = $('.header__logo').innerWidth();
-        // var scaleHeaderLogo = topBarLogoW/headerLogoW;
 
-        // gsap.set('.header__logo', {transformOrigin: 'bottom center'});
+        console.log('SCROLL HEADER');
+        // console.log($('.header--home'));
 
-        // gsap.to('.header__logo', {
-        //     scrollTrigger: {
-        //         trigger: '.header',
-        //         start: 'bottom bottom',
-        //         endTrigger: '.header__logo',
-        //         end: 'bottom 100px',
-        //         scrub: .25,
-        //         // markers: true,
-        //         onLeave: ()=>{
-        //             console.log('TOUCH TOP NOW')
-        //             // gsap.set('.topbar__logo', {opacity: 1, visibility: 'visible'});
-        //             // gsap.set('.header__logo', {autoALpha: 0, visibility: 'hidden'});
-                    
-        //             gsap.set('.topbar__logo', {autoAlpha: 1});
-        //             gsap.set('.header__logo', {autoAlpha: 0});
-        //         },
-        //         onEnterBack: ()=>{
-        //             // gsap.set('.topbar__logo', {opacity: 0, visibility: 'hidden'});
-        //             // gsap.set('.header__logo', {autoALpha: 1, visibility: 'visible'});
-    
-        //             gsap.set('.topbar__logo', {autoAlpha: 0});
-        //             gsap.set('.header__logo', {autoAlpha: 1}); 
-        //         }
-        //     }, // start the animation when ".box" enters the viewport (once)
-        //     scale: scaleHeaderLogo
-        // });
 
         var headerLogo = gsap.timeline({
             scrollTrigger: {
@@ -291,16 +305,18 @@ $(document).ready(function () {
               start: 'top top',
               end: 'bottom 25%',
               scrub: .1,
+            //   markers: true
             }
         });
 
         headerLogo  .to('.header__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -5, stagger: {
             each: .1,
-            // from: 'end'
         }, duration: .25}, 'sameTime')
-                .from('.topbar__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -15, stagger: {
-                    each: .1
-                }, duration: .25}, 'sameTime')
+                    .from('.topbar__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -15, stagger: {
+                        each: .1
+                    }, duration: .25}, 'sameTime');
+
+        console.log('HEADER LOGO ANIM', headerLogo);
 
 
     };
@@ -327,6 +343,8 @@ $(document).ready(function () {
     };
 
     function footer(){
+
+        console.log('footer');
 
         var footerLogo = gsap.timeline({
             scrollTrigger: {
@@ -519,18 +537,18 @@ $(document).ready(function () {
                 trigger: '.section--social-marquee',
                 start: 'top bottom',
                 end: 'bottom top',
-                // onEnter: self => {
-                //     circleTl.play();
-                // },
-                // onEnterBack: self => {
-                //     circleTl.play();
-                // },
-                // onLeave: self => {
-                //     circleTl.timeScale(1).pause();
-                // },
-                // onLeaveBack: self => {
-                //     circleTl.timeScale(1).pause();
-                // },
+                onEnter: self => {
+                    // console.log('ON ENTER');
+                },
+                onEnterBack: self => {
+                    // console.log('ON ENTER BACK');
+                },
+                onLeave: self => {
+                    marquee.animation.timeScale(1);
+                },
+                onLeaveBack: self => {
+                    marquee.animation.timeScale(1);
+                },
                 onUpdate: self => {
                 //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
                     if(self.direction == 1){
@@ -560,11 +578,76 @@ $(document).ready(function () {
         });
     };
 
+    function productSwiper(){
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            // direction: 'vertical',
+            // effect: 'fade',
+            effect: 'cards',
+            cardsEffect: {                  // added
+                perSlideOffset: 2000,         // added(slide gap(px)
+                perSlideRotate: 105,         // added(Rotation angle of second and subsequent slides
+                rotate: true,               // added(Rotation presence of second and subsequent slides(true/false)
+                slideShadows: true,        // added(Shadow presence of second and subsequent slides(true/false)
+            },  
+            // loop: true,
+            grabCursor: true,
+            speed: 500,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            // If we need pagination
+            // pagination: {
+            //   el: '.swiper-pagination',
+            // },
+          
+            // Navigation arrows
+            navigation: {
+              nextEl: '.prev-next__arrow--next',
+              prevEl: '.prev-next__arrow--prev',
+            },
+          
+            // // And if we need scrollbar
+            // scrollbar: {
+            //   el: '.swiper-scrollbar',
+            // },
+          });
+          
+    };
+
+    function killAllScrollTrigger() {
+
+        let triggers = ScrollTrigger.getAll();
+        triggers.forEach(trigger => {
+            trigger.kill();
+        });
+
+    };
+
+    function preventSamePageReload() {
+        var links = document.querySelectorAll('a[href]');
+        var cbk = function (e) {
+            if (e.currentTarget.href === window.location.href) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // if (!navIsClosed) {
+                //     closeNavTl.play();
+                // }
+            }
+        };
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', cbk);
+        }
+    };
+
     function debounce(func, wait, immediate) {
         var timeout;
-        return function() {
+        return function () {
             var context = this, args = arguments;
-            var later = function() {
+            var later = function () {
                 timeout = null;
                 if (!immediate) func.apply(context, args);
             };
@@ -573,6 +656,16 @@ $(document).ready(function () {
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
         };
+    };
+
+    function reInitCF7(form){
+        if(form){
+            try {
+                wpcf7.reset(form);
+            } catch (ev) {
+                wpcf7.init(form);
+            };
+        }
     };
 
 });

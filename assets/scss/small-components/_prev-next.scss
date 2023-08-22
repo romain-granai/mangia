@@ -1,13 +1,24 @@
 .prev-next {
     position: absolute;
+    display: flex;
 
+    .single-product__side--media & {
+        bottom: $gutter;
+        left: $gutter;
+        gap: $gutter/4;
+        z-index: 10;
 
+        @media (max-width: $md){
+            bottom: $gutter/2;
+            left: $gutter/2;
+        }
+
+    }
 
     .region-slider & {
         top: 50%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
-        display: flex;
         justify-content: space-between;
         width: calc(100% + #{$gutter * 4});
         z-index: 10;
@@ -16,6 +27,8 @@
             width: calc(100% + #{$gutter * 2});
         }
     }
+
+
 
 }
 
@@ -64,11 +77,11 @@
         background-color: $yellow;
     }
 
-    .region-slider & {
+    // .region-slider & {
 
         @media (max-width: $md){
             width: 2.4rem;
             height: 2.4rem;
         }
-    }
+    // }
 }

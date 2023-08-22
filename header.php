@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <?php wp_head(); ?>
 
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.min.css">
   <meta name="theme-color" content="FFD12D">
 </head>
 
@@ -40,13 +39,14 @@
 
   <div class="topbar">
     <nav class="topbar__nav topbar__nav--left">
-      <ul>
-        <li><a href="#" title="Our Pasta">Our Pasta</a></li>
+      <?php wp_nav_menu( array('theme_location' => 'top-left', 'container' => false) ); ?>
+      <!-- <ul>
+        <li><a href="#our-pasta" title="Our Pasta">Our Pasta</a></li>
         <li><a href="#" title="Antichi Grani">Antichi Grani</a></li>
-      </ul>
+      </ul> -->
     </nav>
 
-    <a href="#" class="topbar__logo" title="Mangia!">
+    <a href="<?php echo get_home_url(); ?>" class="topbar__logo" title="Mangia!">
       <span class="d-none">Mangia!</span>
       <svg class="topbar__logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1131 276">
         <path class="topbar__logo__letter"

@@ -24,22 +24,15 @@
     }
 
     &--1 {
-        background: repeating-linear-gradient(80deg,$white 0%,$white .75%,$red .75%,$red 2%);
-        background-size: 1000% 100%;
-        animation: animBg 200s linear infinite;
+        // @include background-anim-1;
     }
 
     &--2 {
-background-image:  repeating-linear-gradient(45deg, $green 25%, transparent 25%, transparent 75%, $green 75%, $green), repeating-linear-gradient(45deg, $green 25%, transparent 25%, transparent 75%, $green 75%, $green);
-        background-position: 0 0, 20vw 20vw;
-        background-size: 40vw 40vw;
-        animation: animBgChess 10s linear infinite;
+        // @include background-anim-2;
     }
 
     &--3 {
-        background: repeating-linear-gradient(50deg,$white 0%,$white 1%,$blue 1%,$blue 2%);
-        background-size: 1000% 100%;
-        animation: animBg 200s linear infinite reverse;
+        // @include background-anim-3;
     }
 
     @media (orientation: portrait) {
@@ -70,24 +63,6 @@ background-image:  repeating-linear-gradient(45deg, $green 25%, transparent 25%,
         width: 100%;
     }
 }
-
-@keyframes animBg {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
- }
-
- @keyframes animBgChess {
-    0% {
-        background-position: 0 0, 20vw 20vw;
-    }
-    100% {
-        background-position: 20vw 20vw, 40vw 40vw;
-    }
- }
 
 .product-slide__front {
     position: absolute;

@@ -1,0 +1,109 @@
+.block--single-product {
+    // height: 100vh;
+}
+
+.single-product:not(body) {
+    display: flex;
+    // height: 100%;
+    @media (max-width: $lg){
+        flex-direction: column;
+    }
+
+    @media (orientation: portrait) {
+        flex-direction: column;
+    }
+}
+
+.single-product__side {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    @media (max-width: $lg){
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    @media (orientation: portrait) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.single-product__side--media {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: calc(134px + $gutter) $gutter*3 $gutter;
+    overflow: hidden;
+
+    .swiper {
+        height: 100%;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    @media (max-width: $lg){
+        position: relative;
+        padding: calc(70px + $gutter) $gutter*3 $gutter;
+    }
+
+    @media (orientation: portrait) {
+        position: relative;
+    }
+
+    @media (max-width: $sm){
+        padding: calc(70px + $gutter/2) $gutter/2 $gutter;
+    }
+}
+
+.single-product__side--text {
+    padding: calc(134px + $gutter) $gutter $gutter;
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
+    }
+}
+
+.single-product__title {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: $font-brand;
+    @include fs-biggest-clamp--half;
+    margin-bottom: .5em;
+
+    @media (max-width: $lg){
+        @include fs-biggest-clamp;
+    }
+
+    @media (orientation: portrait) {
+        @include fs-biggest-clamp;
+    }
+}
+
+.single-product__sup {
+    font-family: $font-serif;
+    @include fs-lg;
+}
+
+.single-product__intro {
+    margin-bottom: $gutter*2;
+}
+
+.anim-bg-1 {
+    @include background-anim-1;
+}
+
+.anim-bg-2 {
+    @include background-anim-2;
+}
+
+.anim-bg-3 {
+    @include background-anim-3;
+}
