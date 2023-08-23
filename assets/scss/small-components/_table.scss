@@ -1,6 +1,22 @@
 .table {
     border: 4px solid $black;
     margin-bottom: $gutter/2;
+    font-family: $font-text;
+    font-weight: 300;
+
+    h2, h3, h4, h5 {
+        font-weight: 300;
+
+        b,
+        strong {
+            font-weight: bold;
+        }
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
 
     &--rounded {
         border-radius: $gutter;

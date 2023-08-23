@@ -77,7 +77,7 @@
                     <div class="table">
                     <div class="row">
                         <div class="col col--dark text-center">
-                        <p>Valori nutrizionali medi per 100 g | Average nutritional values per 100 g | Valeurs nutritionnelles moyennes pour 100 g | Durchschnittliche Nährwerte je 100 g</p>
+                        <p><strong>Valori nutrizionali medi</strong> per 100 g | <strong>Average nutritional</strong> values per 100 g | <strong>Valeurs nutritionnelles moyennes</strong> pour 100 g | <strong>Durchschnittliche Nährwerte</strong> je 100 g</p>
                         </div>
                     </div>
                     <div class="row">
@@ -86,7 +86,7 @@
                     </div>
                     <div class="row row--col-border">
                         <div class="col">
-                        <h3>Grassi|Fat|Matières grasses|Fett ↘ di cui: acidi grassi saturi|of which: saturates|dont: acides gras saturés davon: gesättigte Fettsäuren</h3>
+                        <h3><strong>Grassi|Fat|Matières grasses|Fett ↘ di cui:</strong> acidi grassi saturi|of which: saturates|dont: acides gras saturés davon: gesättigte Fettsäuren</h3>
                         </div>
                         <div class="col text-right">
                         <p>1,0 g <br>0,4 g</p>

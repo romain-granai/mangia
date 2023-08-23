@@ -12,12 +12,36 @@
 
 @font-face {
     font-family: 'GT Eesti Display';
-    src: url('../fonts/GTEestiDisplayTrial-Rg.eot');
-    src: url('../fonts/GTEestiDisplayTrial-Rg.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/GTEestiDisplayTrial-Rg.woff2') format('woff2'),
-        url('../fonts/GTEestiDisplayTrial-Rg.woff') format('woff'),
-        url('../fonts/GTEestiDisplayTrial-Rg.ttf') format('truetype');
+    src: url('../fonts/GT-Eesti-Display-Light.eot');
+    src: url('../fonts/GT-Eesti-Display-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GT-Eesti-Display-Light.woff2') format('woff2'),
+        url('../fonts/GT-Eesti-Display-Light.woff') format('woff'),
+        url('../fonts/GT-Eesti-Display-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Eesti Display';
+    src: url('../fonts/GT-Eesti-Display-Medium.eot');
+    src: url('../fonts/GT-Eesti-Display-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GT-Eesti-Display-Medium.woff2') format('woff2'),
+        url('../fonts/GT-Eesti-Display-Medium.woff') format('woff'),
+        url('../fonts/GT-Eesti-Display-Medium.ttf') format('truetype');
     font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Eesti Display';
+    src: url('../fonts/GT-Eesti-Display-Bold.eot');
+    src: url('../fonts/GT-Eesti-Display-Bold?#iefix') format('embedded-opentype'),
+        url('../fonts/GT-Eesti-Display-Bold.woff2') format('woff2'),
+        url('../fonts/GT-Eesti-Display-Bold.woff') format('woff'),
+        url('../fonts/GT-Eesti-Display-Bold.ttf') format('truetype');
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }

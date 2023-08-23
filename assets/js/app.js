@@ -96,7 +96,7 @@ $(document).ready(function () {
                 window.scrollTo(0, 0);
 
                 killAllScrollTrigger();
-
+                preventSamePageReload();
                 gsap.set('.topbar__logo__letter, .footer__logo g', {clearProps: 'all'});
                 topbar();
                 footer();
@@ -104,8 +104,6 @@ $(document).ready(function () {
             },
             enter({current, next, trigger}) {
                 console.log('GLOBAL ENTER');
-
-                preventSamePageReload();
 
                 return new Promise(resolve => {
                     
@@ -138,6 +136,7 @@ $(document).ready(function () {
                     socialMarquee();
                     curtainColor();
                     pastaForm();
+                    popup();
                     // initContactForm7(form);
                     reInitCF7(cf7Form);
 
@@ -576,6 +575,67 @@ $(document).ready(function () {
 
             
         });
+    };
+
+    function popup(){
+        var $popupCta = $('.popup__cta'),
+            $popup = $('.popup__popup'),
+            $popupContentWrap = $('.popup__content'),
+            $popupTitle = $('.poupup__text');
+
+        $popupCta.on('mouseenter', function(e){
+            var thisText = $(this).data('text'),
+                textMarkup = '<p>'+ thisText +'</p>',
+                thisColor = $(this).css('--hover-color'),
+                $thisRelatedImg = $(this).data('related-img');
+
+                // console.log(thisColor);
+
+            $popupContentWrap.html(textMarkup);
+            $popup.addClass('popup__popup--is-visible');
+            $popup.css('--bg-shadow', thisColor);
+
+            $('.popup__media img').removeClass('is-visible');
+            $('.popup__media img[data-index="'+ $thisRelatedImg +'"]').addClass('is-visible');
+
+        });
+
+        $popupCta.on('mouseleave', function(){
+            $popup.removeClass('popup__popup--is-visible');
+            $('.popup__media img').removeClass('is-visible');
+            $('.popup__media img:first-child').addClass('is-visible');
+        });
+        
+        $popupTitle.on('mouseenter', function(e){
+            var per = (e.pageX - $(this).offset().left) / $(this).outerWidth() * 100;
+
+            console.log(per + '%');
+
+            gsap.set($popup, {left: per + '%'})
+        });
+
+        $popupTitle.on('mousemove', function(e){
+            var per = (e.pageX - $(this).offset().left) / $(this).outerWidth() * 100;
+
+            console.log(per + '%');
+
+            gsap.to($popup, {left: per + '%'})
+        });
+
+        Observer.create({
+            target: $popupTitle,         // can be any element (selector text is fine)
+            type: 'pointer',    // comma-delimited list of what to listen for ("wheel,touch,scroll,pointer")
+            // onUp: () => previous(), 
+            // onDown: () => next(),
+            onMove: (data)=>{
+                var vel = data._vx.getVelocity() / -200 + '%';
+                gsap.to('.popup__popup', {'--velocity': vel, duration: .2});
+            },
+            onStop: ()=>{
+                gsap.to('.popup__popup', {'--velocity': 0, duration: .2});
+            }
+          });
+
     };
 
     function productSwiper(){
