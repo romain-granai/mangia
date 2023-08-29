@@ -85,6 +85,16 @@
     order: 1;
     font-family: $font-serif;
     @include fs-lg;
+    text-transform: uppercase;
+    margin-bottom: 1.7em;
+
+    @container (max-width: #{$sm}) {
+        @include fs-md;
+    }
+
+    @media (max-width: $sm) {
+        @include fs-md;
+    }
 }
 
 .product-slide__title {
@@ -198,6 +208,13 @@
 
 .product-slide__sub {
     order: 3;
+    margin: .2em 0 1em 0;
+    text-transform: uppercase;
+    @include fs-lg;
+
+    @media (max-width: $sm){
+        @include fs-md;
+    }
 }
 
 .product-slide__cta {

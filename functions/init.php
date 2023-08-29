@@ -27,7 +27,7 @@ add_filter('upload_mimes', 'wpc_mime_types');
 // ACF - Activation des Options Page
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title' 	=> 'Options du thème',
+		'page_title' 	=> 'Theme options',
 		'menu_title'	=> 'Theme options',
 		'menu_slug' 	=> 'theme-general-settings',
 		'capability'	=> 'edit_posts',

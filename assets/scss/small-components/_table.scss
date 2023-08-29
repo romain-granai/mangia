@@ -9,13 +9,13 @@
 
         b,
         strong {
-            font-weight: bold;
+            font-weight: normal;
         }
     }
 
     b,
     strong {
-        font-weight: bold;
+        font-weight: normal;
     }
 
     &--rounded {
@@ -44,6 +44,11 @@
             background-color: $black;
             color: $white;
         }
+
+        &.is-title {
+            @include fs-xl-clamp;
+            font-family: $font-serif;
+        }
     }
 
     .row--col-border {
@@ -51,6 +56,24 @@
             border-right: 4px solid $black;
         }
     }
+
+    @container (max-width: #{$md}) {
+        @include fs-xs;
+
+        h2, h3, h4, h5 {
+            @include fs-xs;
+        }
+    }
+
+
+    @media (max-width: $md){
+        @include fs-xs;
+
+        h2, h3, h4, h5 {
+            @include fs-xs;
+        }
+    }
+
 }
 
 // .table__row {
@@ -102,10 +125,19 @@
         justify-content: center;
         flex: 1 1 100%;
         padding: $gutter/2;
+        font-weight: 300;
 
         &:not(:last-child) {
             border-right: 4px solid black;
         }
+    }
+
+    @container (max-width: #{$md}) {
+        @include fs-xs;
+    }
+
+    @media (max-width: $md){
+        @include fs-xs;
     }
 }
 

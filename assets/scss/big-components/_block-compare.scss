@@ -1,0 +1,213 @@
+.block--compare {
+    padding: $gutter/4*9 $gutter;
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
+    }
+}
+
+.compare__title {
+    font-family: $font-brand;
+    @include fs-xxxl-clamp;
+    text-transform: uppercase;
+    margin-bottom: $gutter/4*6;
+}
+
+.compare-table-wrapper {
+    display: flex;
+    overflow: auto;
+    width: calc(100% + 2*$gutter);
+    margin-left: -$gutter;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { 
+        display: none;
+    }
+
+    &:after,
+    &:before {
+        content: "";
+        flex: 0 0 $gutter;
+    }
+
+    @media (max-width: $sm){
+        width: calc(100% + $gutter);
+        margin-left: -$gutter/2;
+
+        &:after,
+        &:before {
+            content: "";
+            flex: 0 0 $gutter/2;
+        }
+    }
+    
+}
+
+.compare-table {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 4px;
+    @include fs-sm;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1750px;
+    
+    @media (max-width: $lg){
+        @include fs-xs;
+        width: auto;
+    }
+}
+
+.compare-table__row {
+    display: flex;
+    gap: $gutter/2;
+    width: 100%;
+
+
+    &:not(:first-child){
+        &:hover {
+            .compare-table__col {
+                background-color: $yellow;
+
+                &--mangia {
+                    color: $white;
+                    background-color: $black;
+                }
+
+                &:first-child span {
+                    transform: translate3d(1rem, 0, 0);
+                }
+            }
+            
+        }
+    }
+
+
+}
+
+.compare-table__col {
+    display: flex;
+    flex: 1 0 calc((100%/5) - (2rem*4));
+    // max-width: calc((100%/5) - (2rem*4));
+    margin-top: -4px;
+    align-items: center;
+    padding: $gutter/4;
+    hyphens: auto;
+    text-transform: capitalize;
+    min-width: 200px;
+    transition: background-color 0.2s ease-in-out;
+
+    &--mangia {
+        background-color: $green;
+    }
+
+    &:first-child {
+        padding-left: 0;
+
+        @media (max-width: $md){
+            flex: 0 0 5%;
+            max-width: 150px;
+            min-width: 150px;
+        }
+    }
+
+    &:not(:first-child) {
+        // border-right: 4px solid black;
+        border: 4px solid $black;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .compare-table__row:first-child & {
+        border-top-left-radius: $gutter;
+        border-top-right-radius: $gutter;
+
+        &:not(:first-child){
+            background-color: $black;
+            color: $white;
+            font-family: $font-serif;
+            @include fs-lg;
+            line-height: 1;
+            padding: $gutter/2 $gutter;
+            
+            @media (max-width: $xl){
+                @include fs-md;
+                padding: $gutter/2 $gutter/2;
+            }
+        }
+    }
+
+    .compare-table__row:last-child & {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
+
+        &:not(:first-child) {
+            border-bottom-left-radius: $gutter;
+            border-bottom-right-radius: $gutter;
+        }
+    }
+
+    span {
+        display: inline-block;
+        transition: transform 0.35s cubic-bezier(0.68,-0.55,0.27,1.55);
+    }
+}
+
+.compare-table-mobile-wrapper {
+    display: none;
+    flex-wrap: wrap;
+    gap: $gutter;
+
+
+    @media (max-width: $lg){
+    //    display: flex;
+
+    }
+
+    @media (max-width: $sm) {
+        flex-direction: column;
+        gap: $gutter/2;
+    }
+}
+
+.compare-table-mobile {
+    flex: 1 1 calc(50% - #{$gutter});
+}
+
+.compare-table-mobile__row {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid $black;
+    margin-top: -4px;
+
+    &:first-child {
+        border-top-left-radius: $gutter;
+        border-top-right-radius: $gutter;
+        color: $white;
+        background-color: $black;
+        font-family: $font-serif;
+        @include fs-md;
+        line-height: 1;
+        padding: $gutter/2 $gutter;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: $gutter;
+        border-bottom-right-radius: $gutter;
+    }
+}
+
+.compare-table-mobile__label {
+    padding: $gutter/8;
+    background-color: $yellow;
+    border-bottom: 1px solid $black;
+    font-weight: 300;
+    @include fs-xs;
+}
+
+.compare-table-mobile__info {
+    padding: $gutter/4;
+}

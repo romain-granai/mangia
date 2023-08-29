@@ -74,21 +74,24 @@
       </svg>
     </a>
 
+    <?php 
+      $footerLegal = get_field('footer_legal', 'option');
+      if($footerLegal):
+    ?>
+
     <div class="footer__legal">
       <div class="footer__legal__in">
-        <p>Prodotto per Terre e Tradizioni S.r.l. Via Tempa, 27, 84033 Montesano s/Marcellana (SA), Italia<br>
-          Distribuito da True Foods & Ancient Seeds GmbH Seestrasse 91, 8002 Zurigo, Svizzera</p>
+        <p><?php echo $footerLegal; ?></p>
       </div>
     </div>
 
-
+    <?php endif; ?>
 
   </footer>
 
 
   
-    <?php wp_footer(); ?>
-  <!-- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendors.min.js"></script> -->
+  <?php wp_footer(); ?>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js" type="module"></script>
 
 </body>

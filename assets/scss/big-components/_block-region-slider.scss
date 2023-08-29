@@ -1,7 +1,7 @@
 .block--region-slider {
     position: relative;
     height: 100%;
-    padding: $gutter*2 $gutter;
+    padding: $gutter/4*9 $gutter;
     overflow: hidden;
 
     &:after {
@@ -149,7 +149,7 @@
     line-height: 1;
 
     @media (max-width: $lg){
-        @include fs-smallest;
+        @include fs-xs;
         
         br {
             display: none;

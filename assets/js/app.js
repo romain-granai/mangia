@@ -2,6 +2,8 @@ import infiniteMarquee from "https://cdn.skypack.dev/infinite-marquee@1.0.7";
 
 $(document).ready(function () {
 
+    let mm = gsap.matchMedia();
+
     const lenis = new Lenis({
         duration: .5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
@@ -61,6 +63,7 @@ $(document).ready(function () {
                 
                 introAnim.play();
 
+                socialMarquee();
                 mobileNav();
                 topbar();
                 footer();
@@ -105,6 +108,8 @@ $(document).ready(function () {
             enter({current, next, trigger}) {
                 console.log('GLOBAL ENTER');
 
+               
+
                 return new Promise(resolve => {
                     
                     const enterAnim = gsap.timeline({
@@ -113,6 +118,10 @@ $(document).ready(function () {
                             
                             $('.curtain').removeClass('curtain__logo--is-animating');
                             gsap.set('.curtain', {'--top-left-clip': '100%', '--top-right-clip': '100%', '--bottom-left-clip': '100%', '--bottom-right-clip': '100%', clearProps: '--curtain-bg'});
+
+                            if (next.url.hash != undefined) {
+                                gsap.to(window, { duration: 1, scrollTo: { y: '#' + next.url.hash }, ease: Power4.easeInOut });
+                            };
                         }
                     });
 
@@ -120,7 +129,7 @@ $(document).ready(function () {
                                 .to('.curtain', {duration: .75, '--bottom-left-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top')
                                 .to('.curtain', {duration: .75, '--bottom-right-clip': 0, ease: Expo.easeInOut}, 'bottom-to-top+=.05');
                 });
-            }
+            },
         }],
         views: [{
             namespace: 'home',
@@ -261,6 +270,64 @@ $(document).ready(function () {
 
             }
         });
+
+        ScrollTrigger.create({
+            trigger: 'body',
+            start: self => 'top top',
+            end: ()=>{ return 'top ' + $('.topbar__marquee').innerHeight(true) * -1 + 'px'},
+            invalidateOnRefresh: true,
+            refreshPriority: -1000,
+            onUpdate: (self) => {
+                // self.direction === -1 ? $('.topbar').removeClass('topbar--is-hidden') : $('.topbar').addClass('topbar--is-hidden')
+
+                if(self.direction === -1){ // scrolling Up
+                    $('.topbar').removeClass('topbar--is-scrolled');
+                } else { // scrolling Down
+                    $('.topbar').addClass('topbar--is-scrolled');                    
+                }
+
+            }
+        });
+
+
+
+        mm.add('(min-width: 769px)', () => {
+            gsap.to('.topbar__marquee', {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: '+=31',
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1000,
+                    scrub: true
+                },
+                scaleY: 0
+            });
+    
+            gsap.to('.topbar', {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: '+=31',
+                    invalidateOnRefresh: true,
+                    refreshPriority: -1000,
+                    scrub: true
+                },
+                y: -31
+            });
+
+        });
+
+        $( '.topbar__nav a[href*="#"]' ).on('click', function(e){
+            e.preventDefault();
+
+            var thisHash = $(this).attr('href').split('#')[1];
+
+            gsap.to(window, { duration: 1, scrollTo: { y: '#' + thisHash }, ease: Power4.easeInOut });
+
+        });
+
+       
     };
 
     function mobileNav(){
@@ -294,7 +361,7 @@ $(document).ready(function () {
 
     function scrollHeader(){
 
-        console.log('SCROLL HEADER');
+        // console.log('SCROLL HEADER');
         // console.log($('.header--home'));
 
 
@@ -315,8 +382,9 @@ $(document).ready(function () {
                         each: .1
                     }, duration: .25}, 'sameTime');
 
-        console.log('HEADER LOGO ANIM', headerLogo);
-
+        // console.log('HEADER LOGO ANIM', headerLogo);
+        
+        
 
     };
 
@@ -326,7 +394,7 @@ $(document).ready(function () {
         var scrollProduct = gsap.timeline({
             scrollTrigger: {
               trigger: '.section--product-slide',
-              start: 'top top',
+              start: () => { return window.innerWidth > 768 ? 'top top' : 'top 70px' },
               end: () => {
 				return "+=" + window.innerHeight * (numOfItem - 1);
 			    },
@@ -343,7 +411,7 @@ $(document).ready(function () {
 
     function footer(){
 
-        console.log('footer');
+        // console.log('footer');
 
         var footerLogo = gsap.timeline({
             scrollTrigger: {
@@ -496,6 +564,11 @@ $(document).ready(function () {
     };
 
     function socialMarquee(){
+
+        if (!$('.marquee').length){
+            return
+        }
+
         $('.marquee').each(function (e) {
 
             var marquee = new infiniteMarquee({
@@ -554,7 +627,17 @@ $(document).ready(function () {
                         marquee.animation.timeScale( (1 *  self.getVelocity()/300) + 1);
                     }
                 }
+
             });
+
+            
+            
+            var resizeDebounceMarquee = debounce(function() {
+                marquee.animation.timeScale(1);
+                console.log('resize debounce')
+            }, 100);
+
+            $(window).on('resize', resizeDebounceMarquee);
 
       });
     };
@@ -609,17 +692,19 @@ $(document).ready(function () {
         $popupTitle.on('mouseenter', function(e){
             var per = (e.pageX - $(this).offset().left) / $(this).outerWidth() * 100;
 
-            console.log(per + '%');
+            // console.log(per + '%');
 
             gsap.set($popup, {left: per + '%'})
         });
 
         $popupTitle.on('mousemove', function(e){
-            var per = (e.pageX - $(this).offset().left) / $(this).outerWidth() * 100;
+            var perX = (e.pageX - $(this).offset().left) / $(this).outerWidth() * 100;
+            var perY = (e.pageY - $(this).offset().top) / $(this).outerHeight() * 100;
 
-            console.log(per + '%');
+            // console.log(perX + '%');
 
-            gsap.to($popup, {left: per + '%'})
+            gsap.to($popup, {left: perX + '%'})
+            gsap.to($popup, {'--top': perY + '%'});
         });
 
         Observer.create({
@@ -628,11 +713,12 @@ $(document).ready(function () {
             // onUp: () => previous(), 
             // onDown: () => next(),
             onMove: (data)=>{
-                var vel = data._vx.getVelocity() / -200 + '%';
-                gsap.to('.popup__popup', {'--velocity': vel, duration: .2});
+                var velX = data._vx.getVelocity() / -200 + '%';
+                var velY = data._vy.getVelocity() / -200 + '%';
+                gsap.to('.popup__popup', {'--velocity-x': velX, '--velocity-y': velY, duration: .2});
             },
             onStop: ()=>{
-                gsap.to('.popup__popup', {'--velocity': 0, duration: .2});
+                gsap.to('.popup__popup', {'--velocity-x': 0, '--velocity-y': 0, duration: .2});
             }
           });
 

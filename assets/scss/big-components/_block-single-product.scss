@@ -63,6 +63,7 @@
 }
 
 .single-product__side--text {
+    container-type: inline-size;
     padding: calc(134px + $gutter) $gutter $gutter;
 
     @media (max-width: $sm){
@@ -90,10 +91,21 @@
 .single-product__sup {
     font-family: $font-serif;
     @include fs-lg;
+    text-transform: uppercase;
+    margin-bottom: 1.7em;
+
+    @container (max-width: #{$sm}) {
+        @include fs-md;
+    }
+
+    @media (max-width: $sm) {
+        @include fs-md;
+    }
 }
 
 .single-product__intro {
     margin-bottom: $gutter*2;
+    font-weight: 300;
 }
 
 .anim-bg-1 {

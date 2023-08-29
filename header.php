@@ -37,6 +37,23 @@
   </div>
   <div class="white-curtain"></div>
 
+  <?php
+    $topMarquee = get_field('top_marquee_content', 'option');
+    if($topMarquee):
+  ?>
+
+  <div class="topbar__marquee">
+      <div class="marquee topbar-marquee">
+        <div class="marquee-inner">
+          <div class="marquee-content">
+            <span><?php echo $topMarquee; ?></span>
+          </div>
+        </div>
+      </div>
+  </div>
+    
+  <?php endif; ?>
+
   <div class="topbar">
     <nav class="topbar__nav topbar__nav--left">
       <?php wp_nav_menu( array('theme_location' => 'top-left', 'container' => false) ); ?>
@@ -68,7 +85,7 @@
     <nav class="topbar__nav topbar__nav--right">
       <ul>
         <li><a href="#" title="Our Pasta">Our Story</a></li>
-        <li><a href="#" title="Antichi Grani">Account</a></li>
+        <!-- <li><a href="#" title="Antichi Grani">Account</a></li> -->
       </ul>
     </nav>
 

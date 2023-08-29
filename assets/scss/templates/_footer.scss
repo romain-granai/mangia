@@ -1,3 +1,7 @@
+// * {
+//     border: 1px solid red;
+// }
+
 .footer {
     // margin-top: 50vh;
     display: flex;
@@ -20,21 +24,26 @@
 }
 
 .footer__legal {
-    transition: .35s cubic-bezier(.68,-0.55,.27,1.55) .3s;
+    transition: opacity .35s cubic-bezier(.68,-0.55,.27,1.55) .3s, visibility .35s cubic-bezier(.68,-0.55,.27,1.55) .3s;
     order: 2;
     margin-bottom: -6rem;
+    @include fs-sm;
+
+    @media (max-width: $md){
+        @include fs-xs;
+    }
 }
 
 .footer__logo {
     display: block;
     width: 100%;
-    transform: translate3d(0, 25%, 0);
+    transform: translate3d(0, calc(25% + 2em), 0);
     order: 3;
 
     &:hover + .footer__legal {
         visibility: hidden;
         opacity: 0;
-        transition: .35s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+        transition: opacity .35s cubic-bezier(.68,-0.55,.27,1.55) 0s, visibility .35s cubic-bezier(.68,-0.55,.27,1.55) 0s;
     }
 
 }
@@ -148,7 +157,7 @@
 
     .footer__logo__letter {
         transition: .35s cubic-bezier(.68,-0.55,.27,1.55);
-        transform: translate3d(0, -25%, 0);
+        transform: translate3d(0, calc(-25% - 2em), 0);
     }
 
     g {
@@ -234,7 +243,7 @@
         top: 100%;
         right: 0;
         padding: $gutter/4 $gutter/2;
-        @include fs-smallest;
+        @include fs-xs;
     }
 
     @media (max-width: $lg){

@@ -1,7 +1,7 @@
 .block--intro {
     display: flex;
-    padding: $gutter*2 $gutter;
-    min-height: 85svh;
+    padding: $gutter/4*9 $gutter;
+    // min-height: 85svh;
     overflow: hidden;
 
     @media (max-width: $sm){
@@ -15,26 +15,34 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 
-    p {
-        @include fs-md;
-        font-family: $font-serif;
-        text-transform: uppercase;
-    }
+    // p {
+    //     @include fs-md;
+    //     font-family: $font-serif;
+    //     text-transform: uppercase;
+    // }
 }
 
 .intro__title {
     width: 100%;
     max-width: 175rem;
+    margin-bottom: 1em;
 }
 
 .intro__circle {
     --speed: 20s;
-    position: absolute;
+    // position: absolute;
+    align-self: flex-end;
     bottom: $gutter;
     right: $gutter;
-    width: 25%;
+    width: 50%;
+    max-width: 750px;
     animation: turn var(--speed) linear infinite;
+    overflow: visible;
+    font-family: $font-serif;
+    text-transform: uppercase;
+    @include fs-xl;
 }
 
 // @keyframes turn {

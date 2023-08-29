@@ -1,26 +1,54 @@
 <section class="section section--viewport section--popup section--bottom-b">
+
     <div class="block block--popup">
         <div class="popup">
-        <div class="poupup__text">
-            <h2 class="intro__title title">
-            <span>Pasta, the way it should be:</span> <br>
-            <a href="#" class="popup__cta" title="Easy digestible" style="--hover-color: red" data-related-img="1" data-text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque esse explicabo blanditiis voluptas perspiciatis harum est autem repellat, voluptatibus pariatur, vero, libero officia dolores incidunt ut totam nemo rerum assumenda.">Easy digestible</a>, 
-            <a href="#" class="popup__cta" style="--hover-color: blue" data-related-img="2" data-text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, eligendi quaerat. Mollitia veritatis soluta quo, minima doloremque illo! Pariatur, facilis rem! Odio iure ipsam perferendis voluptates vel accusamus earum sunt.">organic</a>,
-            <a href="#" class="popup__cta" style="--hover-color: green" data-related-img="3" data-text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi alias enim ipsam id aut eaque labore libero, sapiente hic ipsum totam repudiandae dignissimos quidem quam quos perspiciatis velit suscipit ex.">tasty</a> and 
-            <a href="#" class="popup__cta" style="--hover-color: pink" data-related-img="4" data-text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio minus maiores cumque magnam sapiente, repellat laborum, rerum ratione incidunt dolores nihil perferendis sit dignissimos cum maxime error obcaecati numquam officiis.">fair</a>.
-            </h2>
-            <div class="popup__popup">
-            <div class="popup__content"></div>
+            <div class="poupup__text">
+                <h2 class="intro__title title">
+                    <?php if(get_field('popup_first_sentence')): ?>
+                        <span><?php echo get_field('popup_first_sentence'); ?></span> <br>
+                    <?php endif; ?>
+                <?php if( have_rows('popup__words') ): 
+                        $itemLength = count(get_field('popup__words'))
+                    ?>
+                    <?php while( have_rows('popup__words') ): the_row(); 
+                        $word = get_sub_field('word');
+                        $color = get_sub_field('color');
+                        $relatedText = get_sub_field('related_text');
+                    ?>   
+                    
+                    <a href="#" class="popup__cta" title="<?php echo $word; ?>" style="--hover-color: <?php echo $color; ?>" data-related-img="<?php echo get_row_index(); ?>" data-text="<?php echo $relatedText; ?>"><?php echo $word; ?></a>
+
+                    <?php if($itemLength == get_row_index()): // If last item, add dot after (end of the sentence)?> 
+                        .
+                    <?php elseif($itemLength - 1 == get_row_index()): // If before last item, add "and" after ?>
+                        and
+                    <?php else:  //otherwise add "," after ?>
+                        , 
+                    <?php endif; ?>
+                        
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                
+                </h2>
+                <div class="popup__popup">
+                    <div class="popup__content"></div>
+                </div>
+            </div>
+            <div class="popup__media">
+
+                <img src="<?php echo get_field('popup_main_image')['url']; ?>" alt="<?php echo get_field('popup_main_image')['alt']; ?>" class="is-visible">
+
+                <?php if( have_rows('popup__words') ): ?>
+                    <?php while( have_rows('popup__words') ): the_row();
+                        $relatedImg = get_sub_field('related_image');
+                    ?> 
+                        <img src="<?php echo $relatedImg['url']; ?>" alt="<?php echo $relatedImg['alt']; ?>" data-index="<?php echo get_row_index(); ?>">
+                    <?php endwhile; ?>
+                
+                <?php endif; ?>
+                
             </div>
         </div>
-        <div class="popup__media">
-        
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/header-img.jpg" alt="" class="is-visible">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-1.jpg" alt="" data-index="1">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-2.jpg" alt="" data-index="2">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-3.jpg" alt="" data-index="3">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/media/img/product-slide-img-1.jpg" alt="" data-index="4">
-        </div>
-        </div>
     </div>
+    
 </section>

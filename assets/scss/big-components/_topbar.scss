@@ -7,7 +7,8 @@
     width: 100%;
     @include fs-lg;
     // padding-top: $gutter*3/4;
-    padding: $gutter*3/4 $gutter;
+    padding: calc(($gutter*3/4) + 31px) $gutter $gutter*3/4;
+    mix-blend-mode: difference;
     z-index: 500;
 
     @media (max-width: $xl){
@@ -21,11 +22,12 @@
     @media (max-width: $md){
         justify-content: space-between;
         background-color: $white;
-        padding: $gutter/2 $gutter/2;
+        padding: $gutter/2 $gutter;
+        mix-blend-mode: unset;
     }
 
     @media (max-width: $sm){
-        
+        padding: $gutter/2 $gutter/2;
     }
 }
 
@@ -76,7 +78,8 @@
     a {
         display: block;
         text-decoration: none;
-        color: $primary;
+        // color: $black;
+        color: $white;
         transition: transform .35s cubic-bezier(.68,-0.55,.27,1.55);
         white-space: nowrap;
         text-align: center;
@@ -135,7 +138,7 @@
 }
 
 .topbar__logo__letter {
-    
+    fill: $white;
 
     .topbar__logo:hover & {
         animation-name: bounce;
@@ -169,6 +172,7 @@
     }
 
     @media (max-width: $md){
+        fill: $black;
         // opacity: 1!important;
         // visibility: visible!important;
         // transform: none!important;
@@ -215,5 +219,28 @@
 
     @media (max-width: $sm){
         padding: $gutter/2;
+    }
+}
+
+.topbar__marquee {
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $yellow;
+    padding: .35rem 0 .1rem;
+    z-index: 700;
+    transform-origin: top center;
+
+    span {
+        line-height: 1;
+        font-weight: 300;
+        padding: 0 10rem;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: $md){
+        visibility: hidden;
     }
 }

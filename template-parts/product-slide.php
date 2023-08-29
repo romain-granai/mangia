@@ -19,9 +19,12 @@
         $color = get_field('color');
         $bgType = get_field('background_type');
         $titleArray = str_split(get_the_title());
+        $supTitle = get_field('sup_title');
+        $weight = get_field('weight');
+        $imgPositionClass = $products->current_post % 2 == 0 ? 'product-slide--left' : 'product-slide--right';
     ?>
     <div class="block block--product-slide">
-        <div class="product-slide product-slide--1 product-slide--left <?php echo $bgType; ?>" style="--color: <?php echo $color; ?>">
+        <div class="product-slide product-slide--<?php echo $products->current_post; ?> <?php echo $imgPositionClass; ?> <?php echo $bgType; ?>" style="--color: <?php echo $color; ?>">
 
         <?php if($mainImg): ?>
 
@@ -32,7 +35,9 @@
         <?php endif; ?>
 
         <div class="product-slide__front">
-            <span class="product-slide__sup">Antichi Grani<br> from Sicily<br> –timilia<sup>®</sup>–</span>
+            <?php if($supTitle): ?>
+                <span class="product-slide__sup"><?php echo $supTitle; ?></span>
+            <?php endif; ?>
             <a href="<?php echo the_permalink(); ?>" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: <?php echo $color; ?>" data-curtain="<?php echo $color; ?>"><span>EAT ME!</span></a>
             
             <h2 class="product-slide__title">
@@ -44,7 +49,9 @@
                 ?>
             </a>
             </h2>
-            <span class="product-slide__sub">400 gr. netto</span>
+            <?php if($weight): ?>
+                <span class="product-slide__sub"><?php echo $weight; ?></span>
+            <?php endif; ?>
 
         </div>
         </div>

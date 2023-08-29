@@ -14,7 +14,7 @@
         left: $gutter;
         width: calc(100% - #{$gutter * 2});
         height: 4px;
-        background: repeating-linear-gradient(90deg, $white, $white 10px, $black 10px, $black 20px);
+        background: repeating-linear-gradient(90deg, $black, $black 10px,transparent 10px,transparent 20px);
 
         @media (max-width: $sm){
             left: $gutter/2;
@@ -35,7 +35,7 @@
 .section--bottom-b {
     &:after {
         content: "";
-        bottom: 2px;
+        bottom: -2px;
     }
 }
 
@@ -48,7 +48,7 @@
 
     &:after {
         content: "";
-        bottom: 2px;
+        bottom: -2px;
     }
 
 }
@@ -57,6 +57,11 @@
     width: 100%;
     height: 100vh;
     height: 100svh;
+
+    @media (max-width: $sm){
+        height: calc(100vh - 70px);
+        height: calc(100svh - 70px);
+    }
 } 
 
 .section--product-slide {
@@ -70,8 +75,16 @@
 }
 
 .section--social-marquee {
-    padding: $gutter 0;
-    height: 50vh
+    // padding: $gutter 0;
+    // height: 50vh
+}
+
+.section--full-img {
+    margin: $gutter/4*9 0;
+
+    @media (max-width: $sm){
+        margin: $gutter 0;
+    }
 }
 
 .title {
