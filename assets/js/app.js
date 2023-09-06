@@ -63,10 +63,12 @@ $(document).ready(function () {
                 
                 introAnim.play();
 
-                socialMarquee();
+                
                 mobileNav();
                 topbar();
+                topBarMArquee();
                 footer();
+                preventSamePageReload();
             
             },
             leave({current, next, trigger}) {
@@ -146,6 +148,7 @@ $(document).ready(function () {
                     curtainColor();
                     pastaForm();
                     popup();
+                    socialMarquee();
                     // initContactForm7(form);
                     reInitCF7(cf7Form);
 
@@ -318,7 +321,7 @@ $(document).ready(function () {
 
         });
 
-        $( '.topbar__nav a[href*="#"]' ).on('click', function(e){
+        $( '.topbar__nav a[href*="#"], .mobile-nav a[href*="#"]' ).on('click', function(e){
             e.preventDefault();
 
             var thisHash = $(this).attr('href').split('#')[1];
@@ -347,6 +350,12 @@ $(document).ready(function () {
 
         });
 
+        $('.mobile-nav a').on('click', function(){
+            $('.burger').removeClass('burger--close');
+            $('.mobile-nav').removeClass('mobile-nav--is-open');
+            lenis.start();
+        });
+
         var resizeDebounce = debounce(function() {
             if(window.innerWidth > 768){
                 $('.burger').removeClass('burger--close');
@@ -355,7 +364,7 @@ $(document).ready(function () {
             };
         }, 100);
         
-        $(window).on('resize', resizeDebounce)
+        $(window).on('resize', resizeDebounce);
 
     };
 
@@ -565,13 +574,13 @@ $(document).ready(function () {
 
     function socialMarquee(){
 
-        if (!$('.marquee').length){
+        if (!$('.social-marquee').length){
             return
         }
 
-        $('.marquee').each(function (e) {
+        $('.social-marquee').each(function (e) {
 
-            var marquee = new infiniteMarquee({
+            var socialMarquee = new infiniteMarquee({
               //el: document.querySelector('.marquee'),
               el: $(this)[0],
               direction: "left",
@@ -581,27 +590,28 @@ $(document).ready(function () {
       
             var details = { speed: 1 };
       
-            marquee.animation.timeScale(details.speed);
+            socialMarquee.animation.timeScale(details.speed);
       
-            $(this).find('a').on('mouseenter', function () {
+            $(this).on('mouseenter mouseover', function () {
+                // console.log('mouseenter');
+
               gsap.to(details, {
                 duration: 1,
                 speed: 0,
                 onUpdate: function () {
-                //   console.log(details.speed);
-                  marquee.animation.timeScale(details.speed);
-                }
+                  socialMarquee.animation.timeScale(details.speed);
+                },
               });
             });
       
-            $(this).find('a').on('mouseleave', function () {
+            $(this).on('mouseleave', function () {
+                // console.log('mouseleave');
               gsap.to(details, {
                 duration: 1,
                 speed: 1,
                 onUpdate: function () {
-                //   console.log(details.speed);
-                  marquee.animation.timeScale(details.speed);
-                }
+                  socialMarquee.animation.timeScale(details.speed);
+                },
               });
             });
 
@@ -616,15 +626,15 @@ $(document).ready(function () {
                     // console.log('ON ENTER BACK');
                 },
                 onLeave: self => {
-                    marquee.animation.timeScale(1);
+                    socialMarquee.animation.timeScale(1);
                 },
                 onLeaveBack: self => {
-                    marquee.animation.timeScale(1);
+                    socialMarquee.animation.timeScale(1);
                 },
                 onUpdate: self => {
                 //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
                     if(self.direction == 1){
-                        marquee.animation.timeScale( (1 *  self.getVelocity()/300) + 1);
+                        socialMarquee.animation.timeScale( (1 *  self.getVelocity()/300) + 1);
                     }
                 }
 
@@ -633,13 +643,53 @@ $(document).ready(function () {
             
             
             var resizeDebounceMarquee = debounce(function() {
-                marquee.animation.timeScale(1);
-                console.log('resize debounce')
+                socialMarquee.animation.timeScale(1);
+                // console.log('resize debounce')
             }, 100);
 
             $(window).on('resize', resizeDebounceMarquee);
 
       });
+    };
+
+    function topBarMArquee(){
+        var topbarMarquee = new infiniteMarquee({
+            //el: document.querySelector('.marquee'),
+            el: $('.topbar-marquee')[0],
+            direction: "left",
+            duration: 20,
+            css: false
+          });
+
+          var details = { speed: 1 };
+
+          $('.topbar-marquee').on('mouseenter', function () {
+            gsap.to(details, {
+              duration: 1,
+              speed: 0,
+              onUpdate: function () {
+              //   console.log(details.speed);
+                topbarMarquee.animation.timeScale(details.speed);
+              },
+            });
+          });
+    
+          $('.topbar-marquee').on('mouseleave', function () {
+            gsap.to(details, {
+              duration: 1,
+              speed: 1,
+              onUpdate: function () {
+              //   console.log(details.speed);
+                topbarMarquee.animation.timeScale(details.speed);
+              },
+            });
+          });
+
+          var resizetopBarDebounceMarquee = debounce(function() {
+            topbarMarquee.animation.timeScale(1);
+        }, 100);
+
+        $(window).on('resize', resizetopBarDebounceMarquee);
     };
 
     function curtainColor(){

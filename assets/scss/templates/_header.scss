@@ -9,6 +9,11 @@
     height: 100svh;
     // padding: $gutter;
     background-color: red;
+
+    @media (orientation: portrait) {
+        height: 70vh;
+        height: 70svh;
+    }
 }
 
 .header--single-product {

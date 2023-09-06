@@ -83,10 +83,7 @@
     </a>
 
     <nav class="topbar__nav topbar__nav--right">
-      <ul>
-        <li><a href="#" title="Our Pasta">Our Story</a></li>
-        <!-- <li><a href="#" title="Antichi Grani">Account</a></li> -->
-      </ul>
+      <?php wp_nav_menu( array('theme_location' => 'top-right', 'container' => false) ); ?>
     </nav>
 
     <button class="burger">
@@ -98,10 +95,25 @@
   </div>
 
   <nav class="mobile-nav">
+    <?php 
+      $leftMenuArray = wp_get_menu_array('top-left');
+      $rightMenuArray = wp_get_menu_array('top-right'); 
+    ?>
     <ul>
-      <li><a href="" title="">Our Pasta</a></li>
-      <li><a href="" title="">Antichi Grani</a></li>
-      <li><a href="" title="">Our Story</a></li>
-      <li><a href="" title="">Account</a></li>
+
+      <?php
+        if(!empty($leftMenuArray)){
+          foreach ($leftMenuArray as $menuItem) {
+            echo '<li><a href="'. $menuItem['url'] .'" title="'. $menuItem['title'] .'">'. $menuItem['title'] .'</a></li>';
+          } 
+        };
+      
+        if(!empty($rightMenuArray)){
+          foreach ($rightMenuArray as $menuItem) {
+            echo '<li><a href="'. $menuItem['url'] .'" title="'. $menuItem['title'] .'">'. $menuItem['title'] .'</a></li>';
+          } 
+        };
+      ?>
+
     </ul>
   </nav>
