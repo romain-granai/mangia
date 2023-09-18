@@ -97,11 +97,20 @@
     }
  }
 
- @keyframes animBgChess {
+@keyframes animBgChess {
     0% {
         background-position: 0 0, 20vw 20vw;
     }
     100% {
         background-position: 20vw 20vw, 40vw 40vw;
     }
- }
+}
+
+@keyframes animBgBorder {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: calc(20px);
+    }
+}
