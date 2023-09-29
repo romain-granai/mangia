@@ -16,7 +16,7 @@
         height: 4px;
         background: repeating-linear-gradient(90deg, $black, $black 10px,transparent 10px,transparent 20px);
         background-size: calc(100% + 20px) 100%;
-        animation: animBgBorder .5s linear infinite;
+        // animation: animBgBorder .5s linear infinite;
 
         @media (max-width: $sm){
             left: $gutter/2;
@@ -57,14 +57,23 @@
 
 .section--viewport {
     width: 100%;
-    height: 100vh;
-    height: 100svh;
+    // height: 1px;
+    // height: 100vh;
+    // height: 100svh;
+    // height: calc(100vh - 70px);
+    height: 1px;
+    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
 
-    @media (max-width: $sm){
-        height: calc(100vh - 70px);
-        height: calc(100svh - 70px);
+    @media (max-width: $md){
+        min-height: calc(100vh - 60px);
+        min-height: calc(100svh - 60px);
     }
 } 
+
+.section--viewport-full {
+    height: 100vh;
+}
 
 .section--product-slide {
     position: relative;

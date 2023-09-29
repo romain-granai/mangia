@@ -1,4 +1,4 @@
-<section class="section section--viewport section--popup section--bottom-b">
+<section class="section section--popup section--bottom-b">
 
     <div class="block block--popup">
         <div class="popup">
@@ -38,14 +38,14 @@
 
                 <img src="<?php echo get_field('popup_main_image')['url']; ?>" alt="<?php echo get_field('popup_main_image')['alt']; ?>" class="is-visible">
 
-                <?php if( have_rows('popup__words') ): ?>
+                <!-- <?php if( have_rows('popup__words') ): ?>
                     <?php while( have_rows('popup__words') ): the_row();
                         $relatedImg = get_sub_field('related_image');
                     ?> 
                         <img src="<?php echo $relatedImg['url']; ?>" alt="<?php echo $relatedImg['alt']; ?>" data-index="<?php echo get_row_index(); ?>">
                     <?php endwhile; ?>
                 
-                <?php endif; ?>
+                <?php endif; ?> -->
                 
             </div>
         </div>

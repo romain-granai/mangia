@@ -1,22 +1,38 @@
 <!-- home_header_images -->
-<?php 
-    $headerHomeImages = get_field('home_header_images');
-    $listOfUrl = array();
+<?php
+    // $headerHomeImages = get_field('home_header_images');
+    // $listOfUrl = array();
 
-    if($headerHomeImages){
-        foreach( $headerHomeImages as $img ){
-            array_push($listOfUrl, $img['url']);
-        }
-    };
+    // if($headerHomeImages){
+    //     foreach( $headerHomeImages as $img ){
+    //         array_push($listOfUrl, $img['url']);
+    //     }
+    // };
 
-    $theRandomImg = array_rand($listOfUrl, 1);
-    // print_r($listOfUrl);
-    // echo $listOfUrl[$theRandomImg];
+    // $theRandomImg = array_rand($listOfUrl, 1);
+    // // print_r($listOfUrl);
+    // // echo $listOfUrl[$theRandomImg];
+
+    if( have_rows('home_header_media') ):
+        while( have_rows('home_header_media') ) : the_row();
+            $img = get_sub_field('image');
+            $imgUrl = $img['url'];
+            $imgPos = get_sub_field('alignment');
+            $object = new stdClass();
+            $object->url = $imgUrl;
+            $object->pos = $imgPos;
+            $listOfMedia[] = $object;
+
+        endwhile;
+    endif;
+
+    $theRandomImg = array_rand($listOfMedia, 1);
 ?>
+
 <header class="header header--home">
-    <?php if($headerHomeImages): ?>
+    <?php if( have_rows('home_header_media') ): ?>
     <div class="header__media">
-        <img src="<?php echo $listOfUrl[$theRandomImg]; ?>" alt="" class="header__img">
+        <img src="<?php echo $listOfMedia[$theRandomImg]->url; ?>" style="--top-pos: <?php echo $listOfMedia[$theRandomImg]->pos; ?>%" alt="" class="header__img">
     </div>
     <?php endif; ?>
     <div class="header__logo">

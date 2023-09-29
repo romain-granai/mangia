@@ -85,6 +85,14 @@
         }
     }
 
+    &:last-child,
+    &:first-child {
+        .compare-table__col:first-child {
+            &:after {
+                display: none;
+            }
+        }
+    }
 
 }
 
@@ -106,6 +114,18 @@
 
     &:first-child {
         padding-left: 0;
+        position: relative;
+        
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            bottom: 0;
+            border-bottom: dashed 4px $black;
+            width: calc(100% + 2rem);
+            z-index: 10;
+        }
 
         @media (max-width: $md){
             flex: 0 0 5%;

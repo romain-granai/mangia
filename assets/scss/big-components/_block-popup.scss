@@ -96,8 +96,9 @@
 .popup__media {
     position: relative;
     width: 100%;
-    flex: 1 1 100%;
+    // flex: 1 1 100%;
     margin-top: $gutter/4*6;
+    aspect-ratio: 16/9;
     overflow: hidden;
 
     img {

@@ -4,11 +4,13 @@
     left: 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
+    background-color: $yellow;
     @include fs-lg;
     // padding-top: $gutter*3/4;
-    padding: calc(($gutter*3/4) + 31px) $gutter $gutter*3/4;
-    mix-blend-mode: difference;
+    padding: calc($gutter/8*3 + 31px) $gutter $gutter/8*3 $gutter/8*3;
+    // mix-blend-mode: difference;
     z-index: 500;
 
     @media (max-width: $xl){
@@ -21,14 +23,14 @@
 
     @media (max-width: $md){
         justify-content: space-between;
-        background-color: $white;
-        padding: $gutter/2 $gutter;
+        // background-color: $white;
+        padding: calc($gutter/8*3 + 31px) $gutter/8*3 $gutter/8*3;
         mix-blend-mode: unset;
     }
 
-    @media (max-width: $sm){
-        padding: $gutter/2 $gutter/2;
-    }
+    // @media (max-width: $sm){
+    //     padding: $gutter/2 $gutter/2;
+    // }
 }
 
 .topbar__nav {
@@ -37,12 +39,12 @@
     ul {
         @include clean-list;   
         display: flex; 
-        justify-content: center;
-        gap: 3em;
+        justify-content: flex-end;
+        gap: 1.5em;
 
-        @media (max-width: $lg){
-            gap: 1.5em;
-        }
+        // @media (max-width: $lg){
+        //     gap: 1.5em;
+        // }
     }
 
     li {
@@ -52,34 +54,34 @@
             transition-delay: .05s;
         }
 
-        .topbar--is-scrolled & {
-            transform: translate3d(0, -50%, 0);
-            opacity: 0;
-            visibility: hidden;
+        // .topbar--is-scrolled & {
+        //     transform: translate3d(0, -50%, 0);
+        //     opacity: 0;
+        //     visibility: hidden;
 
-            &:nth-child(1) {
-                transform: translate3d(0, -100%, 0) rotate(-10deg);
-            }
+        //     &:nth-child(1) {
+        //         transform: translate3d(0, -100%, 0) rotate(-10deg);
+        //     }
 
-            &:nth-child(2) {
-                transform: translate3d(0, -100%, 0) rotate(10deg);
-            }
-        }
+        //     &:nth-child(2) {
+        //         transform: translate3d(0, -100%, 0) rotate(10deg);
+        //     }
+        // }
 
-        &:nth-child(1) a:hover {
-            transform: translate3d(0, 0, 0) rotate(-10deg) scale(1.25);
+        &:nth-child(even) a:hover {
+            transform: translate3d(0, 0, 0) rotate(-4deg) scale(1.1);
         }
     
-        &:nth-child(2) a:hover {
-            transform: translate3d(0, 0, 0) rotate(10deg) scale(1.25);
+        &:nth-child(odd) a:hover {
+            transform: translate3d(0, 0, 0) rotate(4deg) scale(1.1);
         }
     }
 
     a {
         display: block;
         text-decoration: none;
-        // color: $black;
-        color: $white;
+        color: $black;
+        // color: $white;
         transition: transform .35s cubic-bezier(.68,-0.55,.27,1.55);
         white-space: nowrap;
         text-align: center;
@@ -105,27 +107,27 @@
 
 .topbar__logo {
     display: block;
-    flex: 0 0 300px;
-    margin: 0 3em;
-    transform-origin: top center;
+    flex: 0 0 165px;
+    margin: 0;
+    transform-origin: top left;
     transition: transform .35s cubic-bezier(.68,-0.55,.27,1.55);
 
-    .topbar--is-scrolled & {
-        transform: scale(.75);
-    }
+    // .topbar--is-scrolled & {
+    //     transform: scale(.75);
+    // }
 
     @media (max-width: $xl){
-        flex: 0 0 250px;
+        // flex: 0 0 250px;
     }
 
     @media (max-width: $lg){
-        flex: 0 0 200px;
-        margin: 0 2em;
+        // flex: 0 0 200px;
+        // margin: 0 2em;
     }
 
     @media (max-width: $md){
         transform-origin: top left;
-        margin: 0;
+        // margin: 0;
         flex: 0 0 125px;
         transform: none!important;
     }
@@ -138,7 +140,8 @@
 }
 
 .topbar__logo__letter {
-    fill: $white;
+    // fill: $white;
+    fill: $black;
 
     .topbar__logo:hover & {
         animation-name: bounce;
@@ -228,7 +231,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: $yellow;
+    background-color: $black;
+    color: $white;
     padding: .35rem 0 .1rem;
     z-index: 700;
     transform-origin: top center;
@@ -240,7 +244,7 @@
         text-transform: uppercase;
     }
 
-    @media (max-width: $md){
-        visibility: hidden;
-    }
+    // @media (max-width: $md){
+    //     visibility: hidden;
+    // }
 }

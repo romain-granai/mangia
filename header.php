@@ -55,14 +55,6 @@
   <?php endif; ?>
 
   <div class="topbar">
-    <nav class="topbar__nav topbar__nav--left">
-      <?php wp_nav_menu( array('theme_location' => 'top-left', 'container' => false) ); ?>
-      <!-- <ul>
-        <li><a href="#our-pasta" title="Our Pasta">Our Pasta</a></li>
-        <li><a href="#" title="Antichi Grani">Antichi Grani</a></li>
-      </ul> -->
-    </nav>
-
     <a href="<?php echo get_home_url(); ?>" class="topbar__logo" title="Mangia!">
       <span class="d-none">Mangia!</span>
       <svg class="topbar__logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1131 276">
@@ -81,7 +73,9 @@
           d="M1125.75,197.015h-36.13v75.573h36.13Zm-.9-35.801L1131,3.52411h-46.29l5.76,157.68989Z" />
       </svg>
     </a>
-
+    <!-- <nav class="topbar__nav topbar__nav--left">
+      <?php wp_nav_menu( array('theme_location' => 'top-left', 'container' => false) ); ?>
+    </nav> -->
     <nav class="topbar__nav topbar__nav--right">
       <?php wp_nav_menu( array('theme_location' => 'top-right', 'container' => false) ); ?>
     </nav>
@@ -96,7 +90,7 @@
 
   <nav class="mobile-nav">
     <?php 
-      $leftMenuArray = wp_get_menu_array('top-left');
+      // $leftMenuArray = wp_get_menu_array('top-left');
       $rightMenuArray = wp_get_menu_array('top-right'); 
     ?>
     <ul>

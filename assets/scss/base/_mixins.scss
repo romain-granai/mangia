@@ -244,7 +244,7 @@
     --color: #{$red};
     background: repeating-linear-gradient(80deg,$white 0%,$white .75%,var(--color) .75%,var(--color) 2%);
     background-size: 1000% 100%;
-    animation: animBg 200s linear infinite;
+    // animation: animBg 200s linear infinite;
 }
 
 @mixin background-anim-2 {
@@ -252,13 +252,13 @@
     background-image:  repeating-linear-gradient(45deg, var(--color) 25%, transparent 25%, transparent 75%, var(--color) 75%, var(--color)), repeating-linear-gradient(45deg, var(--color) 25%, transparent 25%, transparent 75%, var(--color) 75%, var(--color));
     background-position: 0 0, 20vw 20vw;
     background-size: 40vw 40vw;
-    animation: animBgChess 8s linear infinite;
+    // animation: animBgChess 8s linear infinite;
 }
 
 @mixin background-anim-3 {
     --color: #{$blue};
     background: repeating-linear-gradient(50deg,$white 0%,$white 1%,var(--color) 1%,var(--color) 2%);
     background-size: 1000% 100%;
-    animation: animBg 200s linear infinite reverse;
+    // animation: animBg 200s linear infinite reverse;
 }
 

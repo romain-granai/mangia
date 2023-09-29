@@ -19,6 +19,7 @@
         $color = get_field('color');
         $bgType = get_field('background_type');
         $titleArray = str_split(get_the_title());
+        $numOfLetter = count($titleArray);
         $supTitle = get_field('sup_title');
         $weight = get_field('weight');
         $imgPositionClass = $products->current_post % 2 == 0 ? 'product-slide--left' : 'product-slide--right';
@@ -40,7 +41,7 @@
             <?php endif; ?>
             <a href="<?php echo the_permalink(); ?>" class="btn btn--uppercase product-slide__cta" style="--bg-shadow: <?php echo $color; ?>" data-curtain="<?php echo $color; ?>"><span>EAT ME!</span></a>
             
-            <h2 class="product-slide__title">
+            <h2 class="product-slide__title" style="--numOfLetter: <?php echo $numOfLetter; ?>">
             <a href="<?php echo the_permalink(); ?>" title="<?php echo the_title(); ?>" data-curtain="<?php echo $color; ?>">
                 <?php 
                     foreach ($titleArray as $letter) {

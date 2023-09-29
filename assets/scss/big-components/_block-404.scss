@@ -1,0 +1,25 @@
+.block--four-o-four {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10rem 4rem 4rem;
+
+    .title {
+        font-family: $font-brand;
+        @include fs-xxxl-clamp;
+        text-transform: uppercase;
+        margin-bottom: $gutter/4*6;
+    }
+}
+
+.four-o-four {
+    text-align: center;
+}
+
+.four-o-four__ctas {
+    display: flex;
+    justify-content: center;
+    gap: $gutter/2;
+}
