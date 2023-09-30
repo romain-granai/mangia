@@ -20,7 +20,7 @@
 
     @container (max-width: 550px) {
         // flex: 1 1 100%;
-        flex: 0 1 calc((100% / 2) - $gutter/2);
+        flex: 0 1 calc((100% / 2) - $gutter/4*3);
     }
 }
 
@@ -37,5 +37,6 @@
 
     @container (max-width: 550px) {
         max-width: 30rem;
+        @include fs-xs;
     }
 }

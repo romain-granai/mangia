@@ -11,7 +11,7 @@
     if($products->have_posts()):
 ?>
 
-<section class="section section--product-slide section--viewport" id="our-pasta">
+<section class="section section--product-slide" id="our-pasta">
     <?php while($products->have_posts()) : $products->the_post(); 
         $mainImg = get_field('product_main_image');
         $mainImgUrl = $mainImg['url'];

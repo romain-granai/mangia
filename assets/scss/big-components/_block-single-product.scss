@@ -4,13 +4,9 @@
 
 .single-product:not(body) {
     display: flex;
-    // height: 100%;
-    @media (max-width: $lg){
-        flex-direction: column;
-    }
-
+    
     @media (orientation: portrait) {
-        flex-direction: column;
+        display: unset;
     }
 }
 
@@ -18,10 +14,10 @@
     flex: 0 0 50%;
     max-width: 50%;
 
-    @media (max-width: $lg){
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+    // @media (max-width: $lg){
+    //     flex: 0 0 100%;
+    //     max-width: 100%;
+    // }
 
     @media (orientation: portrait) {
         flex: 0 0 100%;
@@ -33,7 +29,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
-    padding: calc(134px + $gutter) $gutter*3 $gutter;
+    padding: calc(95px + $gutter) $gutter $gutter;
     overflow: hidden;
 
     .swiper {
@@ -48,23 +44,35 @@
         object-position: center;
     }
 
-    @media (max-width: $lg){
-        position: relative;
-        padding: calc(70px + $gutter) $gutter*3 $gutter;
-    }
+    // @media (max-width: $lg){
+    //     position: relative;
+    //     padding: calc(95px + $gutter) $gutter*3 $gutter;
+    //     height: 75vh;
+    //     height: 75svh;
+    // }
 
     @media (orientation: portrait) {
         position: relative;
+        height: 75vh;
+        height: 75svh;
     }
 
     @media (max-width: $sm){
-        padding: calc(70px + $gutter/2) $gutter/2 $gutter;
+        padding: calc(85px + $gutter/2) $gutter/2 $gutter;
     }
 }
 
 .single-product__side--text {
     container-type: inline-size;
     padding: calc(134px + $gutter) $gutter $gutter;
+
+    @media (orientation: portrait) {
+        padding: $gutter*2 $gutter;
+    }
+
+    // @media (orientation: portrait) and (max-width: $md){
+    //     padding: $gutter*2 $gutter;
+    // }
 
     @media (max-width: $sm){
         padding: $gutter $gutter/2;
@@ -79,9 +87,9 @@
     @include fs-biggest-clamp--half;
     margin-bottom: .5em;
 
-    @media (max-width: $lg){
-        @include fs-biggest-clamp;
-    }
+    // @media (max-width: $lg){
+    //     @include fs-biggest-clamp;
+    // }
 
     @media (orientation: portrait) {
         @include fs-biggest-clamp;

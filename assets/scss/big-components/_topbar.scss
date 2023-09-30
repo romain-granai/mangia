@@ -9,7 +9,7 @@
     background-color: $yellow;
     @include fs-lg;
     // padding-top: $gutter*3/4;
-    padding: calc($gutter/8*3 + 31px) $gutter $gutter/8*3 $gutter/8*3;
+    padding: calc($gutter/8*3 + 24.6px) $gutter $gutter/8*3 $gutter/8*3;
     // mix-blend-mode: difference;
     z-index: 500;
 
@@ -24,7 +24,7 @@
     @media (max-width: $md){
         justify-content: space-between;
         // background-color: $white;
-        padding: calc($gutter/8*3 + 31px) $gutter/8*3 $gutter/8*3;
+        padding: calc($gutter/8*3 + 24.6px) $gutter/8*3 $gutter/8*3;
         mix-blend-mode: unset;
     }
 
@@ -233,6 +233,7 @@
     width: 100%;
     background-color: $black;
     color: $white;
+    @include fs-xs;
     padding: .35rem 0 .1rem;
     z-index: 700;
     transform-origin: top center;

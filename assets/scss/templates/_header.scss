@@ -39,6 +39,11 @@
 
 .header__logo__letter {
     transform-origin: bottom center;
+    fill: $black;
+
+    .header__logo--white & {
+        fill: $white;
+    }
 }
 
 .header__media {

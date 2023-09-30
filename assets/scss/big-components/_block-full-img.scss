@@ -6,6 +6,10 @@
     height: 100%;
     color: $white;
     padding: $gutter;
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
+    }
 }
 
 .full-img__media {

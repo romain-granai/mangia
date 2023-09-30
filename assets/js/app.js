@@ -10,9 +10,9 @@ $(document).ready(function () {
         direction: 'vertical', // vertical, horizontal
         gestureDirection: 'vertical', // vertical, horizontal, both
         smooth: true,
-        mouseMultiplier: 1,
+        // mouseMultiplier: 1,
         smoothTouch: false,
-        touchMultiplier: 2,
+        // touchMultiplier: 2,
         infinite: false,
     });
 
@@ -122,7 +122,7 @@ $(document).ready(function () {
                             gsap.set('.curtain', {'--top-left-clip': '100%', '--top-right-clip': '100%', '--bottom-left-clip': '100%', '--bottom-right-clip': '100%', clearProps: '--curtain-bg'});
 
                             if (next.url.hash != undefined) {
-                                gsap.to(window, { duration: 1, scrollTo: { y: '#' + next.url.hash }, ease: Power4.easeInOut });
+                                gsap.to(window, { duration: 1, scrollTo: {offsetY: ()=>{return ($('.topbar').innerHeight() - 24.6)}, y: '#' + next.url.hash }, ease: Power4.easeInOut });
                             };
                         }
                     });
@@ -248,7 +248,7 @@ $(document).ready(function () {
                 scrollTrigger: {
                     trigger: 'body',
                     start: 'top top',
-                    end: '+=31',
+                    end: '+=24.6',
                     invalidateOnRefresh: true,
                     refreshPriority: -1000,
                     scrub: true
@@ -260,12 +260,12 @@ $(document).ready(function () {
                 scrollTrigger: {
                     trigger: 'body',
                     start: 'top top',
-                    end: '+=31',
+                    end: '+=24.6',
                     invalidateOnRefresh: true,
                     refreshPriority: -1000,
                     scrub: true
                 },
-                y: -31
+                y: -24.6
             });
 
         // });
@@ -275,7 +275,7 @@ $(document).ready(function () {
 
             var thisHash = $(this).attr('href').split('#')[1];
 
-            gsap.to(window, { duration: 1, scrollTo: { y: '#' + thisHash }, ease: Power4.easeInOut });
+            gsap.to(window, { duration: 1, scrollTo: {offsetY: ()=>{return ($('.topbar').innerHeight() - 24.6)}, y: '#' + thisHash }, ease: Power4.easeInOut });
 
         });
 
@@ -351,7 +351,7 @@ $(document).ready(function () {
               trigger: '.section--product-slide',
             //   start: () => { return window.innerWidth > 768 ? 'top top' : 'top 70px' },
             //   start: () => { return window.innerWidth > 768 ? 'top 70px' : 'top 60px' },
-              start: () => { return 'top ' + ($('.topbar').innerHeight() - 31.3)},
+              start: () => { return 'top ' + ($('.topbar').innerHeight() - 24.6)},
               end: () => {
 				return "+=" + window.innerHeight * (numOfItem - 1);
 			    },

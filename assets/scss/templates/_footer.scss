@@ -51,6 +51,7 @@
 .footer__logo__svg {
     width: 100%;
     overflow: visible;
+    will-change: transform;
 }
 
 .footer__logo__letter {

@@ -5,6 +5,7 @@
     h2 {
         font-family: $font-serif;
         @include fs-lg;
+        margin: .5em .5em .5em 0;
     }
 
     @media (max-width: $sm){
@@ -23,9 +24,14 @@
 
 .social-marquee__top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 0 $gutter;
+
+    @media (max-width: $sm){
+        padding: 0 $gutter/2;
+    }
 }
 
 .social-marquee__item {

@@ -78,6 +78,14 @@
 .section--product-slide {
     position: relative;
     overflow: hidden;
+
+    min-height: calc(100lvh - 70px);
+    min-height: calc(100lvh - 70px);
+
+    @media (max-width: $md){
+        min-height: calc(100lvh - 60px);
+        min-height: calc(100lvh - 60px);
+    }
 }
 
 .section--region-slider {
