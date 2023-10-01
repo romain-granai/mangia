@@ -38,7 +38,8 @@
                     <?php if($supTitle): ?>
                         <span class="single-product__sup"><?php echo $supTitle; ?></span>
                     <?php endif; ?>
-                    <h1 class="single-product__title">
+                    <?php $howManyLetter = strlen(get_the_title()); ?>
+                    <h1 class="single-product__title" style="--numOfLetter: <?php echo $howManyLetter; ?>">
                         <?php echo the_title(); ?>
                     </h1>
                 </header>
@@ -63,6 +64,18 @@
                     </div>
                     <?php endif; ?>
                     
+                    <?php if( have_rows('benefits_table') ): ?>
+                        <div class="benefits">
+                            <?php while( have_rows('benefits_table') ): the_row(); 
+                                $text = get_sub_field('text');
+                            ?>
+                                <div class="benefit">
+                                    <span><?php echo $text; ?></span>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <?php if( have_rows('tables') ): ?>
                         <?php while( have_rows('tables') ): the_row(); ?>
 

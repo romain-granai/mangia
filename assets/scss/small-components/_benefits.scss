@@ -1,0 +1,48 @@
+.benefits {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: $gutter;
+    align-items: center;
+    margin-bottom: $gutter*2;
+
+    @container (max-width: 550px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: $gutter/2;
+        align-items: start;
+    }
+
+    &:before {
+        content: 'solution 2';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        color: blue;
+    }
+}
+
+.benefit {
+    text-align: center;
+    font-family: $font-serif;
+    text-transform: uppercase;
+    @include fs-md;
+    line-height: 1;
+    hyphens: auto;
+
+    @container (max-width: 900px) {
+        @include fs-sm;
+    }
+
+    @container (max-width: 550px) {
+        // max-width: 30rem;
+        // @include fs-xs;
+    }
+
+    @media (max-width: $sm){
+        @include fs-xs;
+    }
+
+    span {
+
+    }
+}

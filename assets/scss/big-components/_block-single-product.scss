@@ -80,12 +80,14 @@
 }
 
 .single-product__title {
+    --numOfLetter: 1;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
     font-family: $font-brand;
     @include fs-biggest-clamp--half;
-    margin-bottom: .5em;
+    font-size: min(30rem,250cqw/var(--numOfLetter));
+    margin: -.25em 0 5rem 0;
 
     // @media (max-width: $lg){
     //     @include fs-biggest-clamp;
@@ -93,21 +95,25 @@
 
     @media (orientation: portrait) {
         @include fs-biggest-clamp;
+        font-size: min(20rem,250cqw/var(--numOfLetter));
+        margin: -.25em 0 2.5rem 0;
     }
 }
 
 .single-product__sup {
+    display: block;
     font-family: $font-serif;
     @include fs-lg;
     text-transform: uppercase;
     margin-bottom: 1.7em;
-
-    @container (max-width: #{$sm}) {
+    
+    @media (orientation: portrait){
         @include fs-md;
+        margin-bottom: .85em;
     }
 
     @media (max-width: $sm) {
-        @include fs-md;
+        @include fs-sm;
     }
 }
 

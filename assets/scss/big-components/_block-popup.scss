@@ -124,4 +124,8 @@
             // transition: all .25s ease-out;
         }
     }
+
+    @media (max-width: $md){
+        margin-top: $gutter;
+    }
 }
