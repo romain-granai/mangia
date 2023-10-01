@@ -8,7 +8,7 @@
     height: 100vh;
     height: 100svh;
     // padding: $gutter;
-    background-color: red;
+    background-color: $yellow;
 
     @media (orientation: portrait) {
         height: 75vh;
@@ -43,6 +43,20 @@
 
     .header__logo--white & {
         fill: $white;
+    }
+}
+
+.header__logo--shadow {
+    &.header__logo--white  {
+        path {
+            filter: drop-shadow(0 0 5vw rgba($black, .5));
+        }
+    }
+
+    &.header__logo--black {
+        path {
+            filter: drop-shadow(0 0 5vw rgba($white, .5));
+        }
     }
 }
 

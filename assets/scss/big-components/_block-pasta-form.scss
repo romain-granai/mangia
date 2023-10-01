@@ -157,6 +157,11 @@
         }
     }
 
+    .wpcf7-not-valid-tip {
+        padding: $gutter/4 0 0 0!important;
+        @include fs-xs;
+    }
+
     [type="checkbox"]:checked + .wpcf7-list-item-label .letter-measure {
         animation-name: smallBounceColor;
         animation-duration: 1s;

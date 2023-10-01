@@ -19,10 +19,12 @@
             $imgUrl = $img['url'];
             $imgPos = get_sub_field('alignment');
             $logoColor = get_sub_field('logo_color');
+            $logoShadowClass = get_sub_field('logo_shadow') ? ' header__logo--shadow' : '';
             $object = new stdClass();
             $object->url = $imgUrl;
             $object->pos = $imgPos;
             $object->color = $logoColor;
+            $object->shadowClass = $logoShadowClass;
             $listOfMedia[] = $object;
 
         endwhile;
@@ -37,7 +39,7 @@
         <img src="<?php echo $listOfMedia[$theRandomImg]->url; ?>" style="--top-pos: <?php echo $listOfMedia[$theRandomImg]->pos; ?>%" alt="" class="header__img">
     </div>
     <?php endif; ?>
-    <div class="header__logo <?php echo $listOfMedia[$theRandomImg]->color; ?>">
+    <div class="header__logo <?php echo $listOfMedia[$theRandomImg]->color; echo $listOfMedia[$theRandomImg]->shadowClass; ?>">
     <svg class="header__logo__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1131 276">
         <path class="header__logo__letter"
         d="M210.732,272.532V3.46817H145.08L115.556,161.606c-2.202,11.803-6.154,17.453-10.557,17.453-3.951,0-7.9594-5.706-10.161-17.453L65.6528,3.46817H0V272.532H34.8304V113.555c0-11.803.4516-17.0613,7.9596-17.0613,7.9596,0,11.008,4.8103,13.2096,17.4523l25.1208,158.53H129.612l25.121-158.53c1.75-12.642,4.855-17.4523,12.758-17.4523s7.959,5.2583,7.959,17.0613V272.532Z" />
