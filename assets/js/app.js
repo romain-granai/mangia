@@ -110,9 +110,7 @@ $(document).ready(function () {
             enter({current, next, trigger}) {
                 console.log('GLOBAL ENTER');
 
-               
-
-                return new Promise(resolve => {
+               return new Promise(resolve => {
                     
                     const enterAnim = gsap.timeline({
                         onComplete(){
@@ -151,6 +149,7 @@ $(document).ready(function () {
                     socialMarquee();
                     // initContactForm7(form);
                     reInitCF7(cf7Form);
+                    changeBrowserColor('#FFD12D');
 
                 }, 200);
                 
@@ -160,8 +159,20 @@ $(document).ready(function () {
             beforeEnter(data) {
                 
                 setTimeout(function(){
+                    var productColor = $('.section--single-product').data('color');
 
                     productSwiper();
+                    changeBrowserColor(productColor);
+
+                }, 200);
+            }
+        },{
+            namespace: 'page',
+            beforeEnter(data) {
+                setTimeout(function(){
+
+                    doDontScroll();
+                    changeBrowserColor('#FFD12D');
 
                 }, 200);
             }
@@ -765,6 +776,33 @@ $(document).ready(function () {
             // },
           });
           
+    };
+
+    function doDontScroll(){
+
+        if($('body').find('.manifesto-list__item').length){
+
+            console.log('DO DONT');
+            $('.manifesto-list__item').each(function(){
+                var $this = $(this);
+
+                ScrollTrigger.create({
+                    trigger: $this,
+                    start: 'top 66%',
+                    onEnter: ()=>{
+                        $this.addClass('manifesto-list__item--is-visible');
+                    }
+                });
+
+            });
+
+        };
+
+    };
+
+    function changeBrowserColor(color){
+        gsap.to('[name="theme-color"]', 1, {attr:{'content': color}});
+        // $('[name="theme-color"]').attr('content', color);
     };
 
     function killAllScrollTrigger() {

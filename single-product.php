@@ -13,7 +13,7 @@
             $weight = get_field('weight');
         ?>
 
-        <section class="section section--single-product">
+        <section class="section section--single-product" data-color="<?php echo $color; ?>">
             <div class="block block--single-product">
             <div class="single-product">
                 <div class="single-product__side single-product__side--media <?php echo $bgType; ?>" style="--color: <?php echo $color; ?>">

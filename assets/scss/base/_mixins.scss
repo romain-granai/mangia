@@ -44,10 +44,10 @@
     font-size: clamp(32px, 2.32vw, 5rem);
 }
 
-// @mixin fs-xxl {
-//     font-size: 75px;
-//     font-size: 7.5rem;
-// }
+@mixin fs-xxl {
+    font-size: 60;
+    font-size: 6rem;
+}
 
 @mixin fs-xxl-clamp {
     font-size: 60px;
