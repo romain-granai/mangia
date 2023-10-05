@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Mangia!</title>
+  <!-- <title>Mangia!</title> -->
   <meta charset="<?php bloginfo('charset'); ?>">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">

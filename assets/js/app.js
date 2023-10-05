@@ -788,7 +788,8 @@ $(document).ready(function () {
 
                 ScrollTrigger.create({
                     trigger: $this,
-                    start: 'top 66%',
+                    start: 'bottom 80%',
+                    // markers: true,
                     onEnter: ()=>{
                         $this.addClass('manifesto-list__item--is-visible');
                     }
