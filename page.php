@@ -2,6 +2,17 @@
 
   <div data-barba="container" data-barba-namespace="page">
     <main class="main">
+      
+    <?php if ( !empty( get_the_content() ) ): ?>
+    <section class="section section--the-content">
+      <div class="block block--the-content">
+        <div class="the_content">
+          <?php echo the_content(); ?>
+        </div>
+      </div>
+    </section>
+    <?php endif; ?>
+
     <?php if( have_rows('blocks') ): ?>
       <?php while( have_rows('blocks') ): the_row(); ?>
 

@@ -72,7 +72,8 @@
         width: 100%;
         text-transform: uppercase;
         font-family: $font-brand;
-        @include fs-xxxl-clamp;
+        // @include fs-xxxl-clamp;
+        font-size: clamp(5rem,5vw,10rem);
         border-bottom: 4px solid $black;
         padding-bottom: .25em;
         cursor: pointer;

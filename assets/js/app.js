@@ -330,27 +330,27 @@ $(document).ready(function () {
 
     function scrollHeader(){
 
-        var headerLogo = gsap.timeline({
-            onComplete: function(){
-                $('.header__logo').remove();
-                headerLogo.kill();
-            },
-            scrollTrigger: {
-              trigger: '.header--home',
-              start: 'top top',
-              end: 'bottom center',
-              scrub: .1,
-            //   markers: true
-            }
-        }
-        );
+        // var headerLogo = gsap.timeline({
+        //     onComplete: function(){
+        //         $('.header__logo').remove();
+        //         headerLogo.kill();
+        //     },
+        //     scrollTrigger: {
+        //       trigger: '.header--home',
+        //       start: 'top top',
+        //       end: 'bottom center',
+        //       scrub: .1,
+        //     //   markers: true
+        //     }
+        // }
+        // );
 
-        headerLogo  .to('.header__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -5, stagger: {
-            each: .1,
-        }, duration: .25}, 'sameTime')
-                    .from('.topbar__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -15, stagger: {
-                        each: .1
-                    }, duration: .25}, 'sameTime');
+        // headerLogo  .to('.header__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -5, stagger: {
+        //     each: .1,
+        // }, duration: .25}, 'sameTime')
+                    // .from('.topbar__logo__letter', {autoAlpha: 0, scaleY: 1.1, yPercent: -15, stagger: {
+                    //     each: .1
+                    // }, duration: .25}, 'sameTime');
 
     };
 
@@ -364,15 +364,17 @@ $(document).ready(function () {
             //   start: () => { return window.innerWidth > 768 ? 'top 70px' : 'top 60px' },
               start: () => { return 'top ' + ($('.topbar').innerHeight() - 24.6)},
               end: () => {
-				return "+=" + window.innerHeight * (numOfItem - 1);
+                return "+=" + window.innerHeight * (numOfItem - 1);
+				// return "+=" + window.innerHeight * (numOfItem - 1) * 2;
 			    },
                 scrub: true,
               pin: true,
               snap: {
-                    snapTo: 1 / (numOfItem - 1),
-                    duration: {min: 0.3, max: .7},
-                    directional: true,
-                    ease: Expo.easeOut,
+                snapTo: 1 / (numOfItem - 1),
+                delay: 0,
+                duration: {min: 0.5, max: .7},
+                // directional: true,
+                ease: Expo.easeOut,
                     
 			    },
             }
@@ -380,6 +382,7 @@ $(document).ready(function () {
 
         for (let i = 0; i < numOfItem - 1; i++) {
             scrollProduct.to($('.block--product-slide')[i+1], {yPercent: -100, ease: 'none'}, 'item-' + i)
+            // scrollProduct.to($('.block--product-slide')[i+1], {yPercent: -100, ease: 'none', delay: 1}, 'item-' + i)
         };
 
     };
@@ -783,15 +786,15 @@ $(document).ready(function () {
         if($('body').find('.manifesto-list__item').length){
 
             console.log('DO DONT');
-            $('.manifesto-list__item').each(function(){
+            $('.manifesto-list__do-dont').each(function(){
                 var $this = $(this);
 
                 ScrollTrigger.create({
                     trigger: $this,
-                    start: 'bottom 80%',
+                    start: 'top 80%',
                     // markers: true,
                     onEnter: ()=>{
-                        $this.addClass('manifesto-list__item--is-visible');
+                        $this.parent('.manifesto-list__item').addClass('manifesto-list__item--is-visible');
                     }
                 });
 

@@ -60,9 +60,9 @@
     @include fs-xxl;
     margin-bottom: 2em;
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
 
     @media (max-width: $lg){
         @include fs-xl;

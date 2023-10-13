@@ -6,11 +6,13 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    // background-color: $white;
     background-color: $yellow;
     @include fs-lg;
     // padding-top: $gutter*3/4;
     padding: calc($gutter/8*3 + 24.6px) $gutter $gutter/8*3 $gutter/8*3;
     // mix-blend-mode: difference;
+    box-shadow: 0 0 15px rgba($black, .2);
     z-index: 500;
 
     @media (max-width: $xl){

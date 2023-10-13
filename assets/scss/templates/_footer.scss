@@ -29,6 +29,10 @@
     margin-bottom: -6rem;
     @include fs-sm;
 
+    a {
+        color: inherit;
+    }
+
     @media (max-width: $md){
         @include fs-xs;
     }
