@@ -2,58 +2,73 @@
     <div class="block block--compare">
         <div class="compare">
             <?php if(get_field('versus_title')): ?>
-                <h2 class="compare__title"><?php echo get_field('versus_title') ?></h2>
+                <h2 class="brand-title"><?php echo get_field('versus_title') ?></h2>
             <?php endif; ?>
             <div class="compare-table-wrapper" data-lenis-prevent>
                 <div class="compare-table">
                     <div class="compare-table__row">
                         <div class="compare-table__col"><span></span></div>
-                        <div class="compare-table__col"><span>industrial pasta</span></div>
+                        <div class="compare-table__col"><span>Industrial Pasta</span></div>
                         <div class="compare-table__col"><span>MANGIA!</span></div>
-                        <div class="compare-table__col"><span>artisanal</span></div>
-                        <div class="compare-table__col"><span>industrial pasta</span></div>
+                        <div class="compare-table__col"><span>Artisanal</span></div>
+                        <div class="compare-table__col"><span>Premium Brands</span></div>
+                    </div>
+
+                    <div class="compare-table__row">
+                        <div class="compare-table__col"><span>Organic</span></div>
+                        <div class="compare-table__col"><span>X</span></div>
+                        <div class="compare-table__col compare-table__col--mangia"><span>100%</span></div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                    </div>
+                    <div class="compare-table__row">
+                        <div class="compare-table__col"><span>Sustainable</span></div>
+                        <div class="compare-table__col"><span>X</span></div>
+                        <div class="compare-table__col compare-table__col--mangia">V</div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                        <div class="compare-table__col"><span>X</span></div>
+                    </div>
+                    <div class="compare-table__row">
+                        <div class="compare-table__col"><span>Italian</span></div>
+                        <div class="compare-table__col"><span>X</span></div>
+                        <div class="compare-table__col compare-table__col--mangia"><span>V</span></div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                    </div>
+                    <div class="compare-table__row">
+                        <div class="compare-table__col"><span>Gluten Index</span></div>
+                        <div class="compare-table__col"><span>Up to 90%</span></div>
+                        <div class="compare-table__col compare-table__col--mangia">15%-60%</div>
+                        <div class="compare-table__col"><span>Up to 90%</span></div>
+                        <div class="compare-table__col"><span>Up to 90%</span></div>
                     </div>
                     <div class="compare-table__row">
                         <div class="compare-table__col"><span>Price</span></div>
                         <div class="compare-table__col"><span>$</span></div>
                         <div class="compare-table__col compare-table__col--mangia"><span>$$</span></div>
                         <div class="compare-table__col"><span>$$$$</span></div>
-                        <div class="compare-table__col"><span>$$</span></div>
+                        <div class="compare-table__col"><span>$$$</span></div>
                     </div>
                     <div class="compare-table__row">
-                        <div class="compare-table__col"><span>Taste</span></div>
-                        <div class="compare-table__col"><span>Nope</span></div>
-                        <div class="compare-table__col compare-table__col--mangia"><span>True taste, Ask your grandma</span></div>
-                        <div class="compare-table__col"><span>Good</span></div>
-                        <div class="compare-table__col"><span>Well...</span></div>
+                        <div class="compare-table__col"><span>Nutritional Value</span></div>
+                        <div class="compare-table__col"><span>*</span></div>
+                        <div class="compare-table__col compare-table__col--mangia"><span>****</span></div>
+                        <div class="compare-table__col"><span>***</span></div>
+                        <div class="compare-table__col"><span>**</span></div>
                     </div>
                     <div class="compare-table__row">
-                        <div class="compare-table__col"><span>Gluten Index</span></div>
-                        <div class="compare-table__col"><span>Up to 90%</span></div>
-                        <div class="compare-table__col compare-table__col--mangia"><span>Penne 15%<br> Orchietti 50-60%<br> Rigatoni 50-60%</span></div>
-                        <div class="compare-table__col"><span>Up to 90%</span></div>
-                        <div class="compare-table__col"><span>0%</span></div>
+                        <div class="compare-table__col"><span>Digestability</span></div>
+                        <div class="compare-table__col"><span>*</span></div>
+                        <div class="compare-table__col compare-table__col--mangia"><span>****</span></div>
+                        <div class="compare-table__col"><span>**</span></div>
+                        <div class="compare-table__col"><span>*</span></div>
                     </div>
                     <div class="compare-table__row">
-                        <div class="compare-table__col"><span>Use of synthetic pesticides and fertilizer</span></div>
-                        <div class="compare-table__col"><span>Oh Yes</span></div>
-                        <div class="compare-table__col compare-table__col--mangia"><span>Never!</span></div>
-                        <div class="compare-table__col"><span>Sometimes</span></div>
-                        <div class="compare-table__col"><span>Yes</span></div>
-                    </div>
-                    <div class="compare-table__row">
-                        <div class="compare-table__col"><span>Regenerative agriculture</span></div>
-                        <div class="compare-table__col"><span>No</span></div>
-                        <div class="compare-table__col compare-table__col--mangia"><span>YES</span></div>
-                        <div class="compare-table__col"><span>No</span></div>
-                        <div class="compare-table__col"><span>No</span></div>
-                    </div>
-                    <div class="compare-table__row">
-                        <div class="compare-table__col"><span>Faire price for farmers</span></div>
-                        <div class="compare-table__col"><span>No</span></div>
-                        <div class="compare-table__col compare-table__col--mangia"><span>Up to 3x higher prices for our farmers</span></div>
-                        <div class="compare-table__col"><span>Sometimes</span></div>
-                        <div class="compare-table__col"><span>No</span></div>
+                        <div class="compare-table__col"><span>Protection of Biodiversity</span></div>
+                        <div class="compare-table__col"><span>X</span></div>
+                        <div class="compare-table__col compare-table__col--mangia"><span>V</span></div>
+                        <div class="compare-table__col"><span>sometimes</span></div>
+                        <div class="compare-table__col"><span>mostly</span></div>
                     </div>
                 </div>
             </div>

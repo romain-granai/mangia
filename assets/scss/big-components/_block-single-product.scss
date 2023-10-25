@@ -1,5 +1,7 @@
 .block--single-product {
     // height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .single-product:not(body) {
@@ -68,14 +70,6 @@
 
     @media (orientation: portrait) {
         padding: $gutter*2 $gutter;
-    }
-
-    // @media (orientation: portrait) and (max-width: $md){
-    //     padding: $gutter*2 $gutter;
-    // }
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
     }
 }
 

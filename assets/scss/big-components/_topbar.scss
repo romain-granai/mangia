@@ -243,8 +243,12 @@
     span {
         line-height: 1;
         font-weight: 300;
-        padding: 0 10rem;
+        
         text-transform: uppercase;
+
+        span {
+            padding: 0 10rem;
+        }
     }
 
     // @media (max-width: $md){

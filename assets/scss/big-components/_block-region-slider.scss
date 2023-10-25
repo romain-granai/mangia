@@ -1,7 +1,6 @@
 .block--region-slider {
     position: relative;
     height: 100%;
-    padding: $gutter/4*9 $gutter;
     overflow: hidden;
 
     &:after {
@@ -14,10 +13,6 @@
         height: 50px;
         background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
 
-    }
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
     }
 }
 

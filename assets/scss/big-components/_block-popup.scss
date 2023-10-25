@@ -1,10 +1,5 @@
 .block--popup {
-    padding: $gutter/4*9 $gutter;
     height: 100%;
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
-    }
 }
 
 .popup {

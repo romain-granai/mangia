@@ -48,7 +48,7 @@
                         <?php the_content(); ?>
                     </div>
 
-                    <?php if( have_rows('manifesto_table') ): ?>
+                    <!-- <?php if( have_rows('manifesto_table') ): ?>
                     <div class="manifesto">
                         <?php while( have_rows('manifesto_table') ): the_row(); ?>
                         <div class="manifesto__col">
@@ -62,7 +62,7 @@
                         </div>
                         <?php endwhile; ?>
                     </div>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
                     
                     <?php if( have_rows('benefits_table') ): ?>
                         <div class="benefits">

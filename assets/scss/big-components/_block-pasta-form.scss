@@ -1,12 +1,7 @@
 .block--pasta-form {
-    padding: $gutter/4*9 $gutter;
-
+    
     .title {
         margin-bottom: $gutter/4*6;
-    }
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
     }
 }
 

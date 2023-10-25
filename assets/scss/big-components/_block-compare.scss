@@ -1,12 +1,8 @@
 .block--compare {
-    padding: $gutter/4*9 $gutter;
 
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
-    }
 }
 
-.compare__title {
+.brand-title {
     font-family: $font-brand;
     @include fs-xxxl-clamp;
     text-transform: uppercase;

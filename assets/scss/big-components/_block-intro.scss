@@ -1,12 +1,6 @@
 .block--intro {
     display: flex;
-    padding: $gutter/4*9 $gutter;
-    // min-height: 85svh;
     overflow: hidden;
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
-    }
 }
 
 .intro {

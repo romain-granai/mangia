@@ -1,0 +1,40 @@
+.block--underline-list {
+    height: 100%;
+}
+
+.underline-list {
+    @include clean-list;
+    text-align: center;
+}
+
+.underline-list__item {
+    display: inline-block;
+    max-width: 95rem;
+    margin-bottom: $gutter*4;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.underline-list__top-content {
+    display: inline-block;
+    @include fs-xxl-clamp;
+    text-transform: uppercase;
+    border-bottom: 14px solid $black;
+    margin-bottom: $gutter*2.5;
+}
+
+.underline-list__bottom-content {
+    @include fs-lg;
+    text-align: left;
+    margin: 0;
+
+    @media (max-width: $lg){
+        @include fs-md;
+    }
+
+    @media (max-width: $md){
+        @include fs-sm;
+    }
+}

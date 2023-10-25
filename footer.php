@@ -1,8 +1,9 @@
 <footer class="footer">
     <div class="footer__nl">
-
+    
+    <!-- https://gmail.us21.list-manage.com/subscribe/post?u=f9138a877b7e33863a21294d7&amp;id=6d661aae6f&amp;f_id=00e867e1f0 -->
       <form
-        action="https://gmail.us21.list-manage.com/subscribe/post?u=f9138a877b7e33863a21294d7&amp;id=6d661aae6f&amp;f_id=00e867e1f0"
+        action="https://eatmangia.us21.list-manage.com/subscribe/post?u=9479afe50cdc173c1b419fe46&amp;id=5468a45281&amp;f_id=00dfe7e6f0"
         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer__form"
         target="_blank">
 
