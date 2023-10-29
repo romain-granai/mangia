@@ -93,6 +93,7 @@
 
                 &--mangia {
                     color: $white;
+                    fill: $white;
                     background-color: $black;
                 }
 
@@ -190,8 +191,16 @@
     }
 
     span {
-        display: inline-block;
+        display: flex;
         transition: transform 0.35s cubic-bezier(0.68,-0.55,0.27,1.55);
+    }
+
+    svg {
+        height: 1em;
+    }
+
+    path {
+        fill: inherit;
     }
 }
 
