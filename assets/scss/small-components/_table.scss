@@ -33,7 +33,7 @@
     }
 
     .col {
-        padding: $gutter/2;
+        padding: $gutter/4 $gutter/2;
         flex: 1 1 50%;
     
         &:first-child {

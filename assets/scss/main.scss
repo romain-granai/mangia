@@ -17,7 +17,6 @@
 @import "small-components/_table";
 @import "small-components/_manifesto-table";
 @import "small-components/_benefits";
-@import "small-components/_pattern-title";
 
 @import "big-components/_topbar";
 @import "big-components/_block";
@@ -32,11 +31,15 @@
 @import "big-components/_block-popup";
 @import "big-components/_block-compare";
 @import "big-components/_block-404";
-@import "big-components/_block-manifesto-list.scss";
-@import "big-components/_block-the-content.scss";
-@import "big-components/_block-dropdowns.scss";
-@import "big-components/_block-underline-list.scss";
-@import "big-components/_block-brand-title.scss";
+@import "big-components/_block-manifesto-list";
+@import "big-components/_block-the-content";
+@import "big-components/_block-dropdowns";
+@import "big-components/_block-underline-list";
+@import "big-components/_block-brand-title";
+@import "big-components/_block-pattern-title";
+@import "big-components/_block-double-img";
+@import "big-components/_block-small-img";
+
 
 @import "templates/_header";
 @import "templates/_main";

@@ -8,7 +8,7 @@
         target="_blank">
 
         <div class="footer__nl__top">
-          <h2 class="footer__nl__title">Be part of the community :</h2>
+          <h2 class="footer__nl__title">Let us keep you up to date:</h2>
 
           <div class="mc-field-group footer__nl__field">
             <label for="mce-EMAIL" class="d-none">Email Address</label>

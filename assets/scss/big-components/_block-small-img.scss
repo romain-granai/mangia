@@ -1,0 +1,43 @@
+.block--small-img {
+
+}
+
+.small-img {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: $gutter;
+
+    img {
+        display: block;
+        width: 100%;
+        grid-column: 3 / 11;
+    }
+
+    &--sm {
+
+        img {
+            grid-column: 5 / 9;
+        }
+    }
+
+    @media (max-width: $lg){
+        img {
+            grid-column: 2 / 12;
+        }
+
+        &--sm {
+
+            img {
+                grid-column: 4 / 10;
+            }
+        }
+    }
+
+    @media (max-width: $md){
+        display: flex;
+
+        img {
+            flex: 1 1 100%;
+        }
+    }
+}

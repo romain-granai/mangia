@@ -18,26 +18,43 @@
 
         <?php if( get_row_layout() == 'text' ): 
           $content = get_sub_field('content');
-          $textSizeClass = 'just-text--' . get_sub_field('text_size');
-          $columnSizeClass = 'just-text--' . get_sub_field('column_size');
-          $fullHeightClass = get_sub_field('full_height') ? 'just-text--full-height' : '';
-          $verticalAlignClass = 'just-text--' . get_sub_field('vertical_alignment');
-          $breathClass = get_sub_field('a_bit_of_space_over_and_under') ? 'just-text--breath':'';
+          $contentCentering = get_sub_field('centering_content');
+          $cta = get_sub_field('cta');
+          $ctaLabel = get_sub_field('cta_label');
+          $minHeightClass = get_sub_field('minimum_height_100') ? 'block--just-text--fh': '';
+          $isSmall = get_sub_field('is_small');
         ?>
-          
-          <div class="block block--just-text">
-            <div class="just-text <?php echo $textSizeClass . ' ' . $columnSizeClass . ' ' . $fullHeightClass . ' ' . $verticalAlignClass . ' ' . $breathClass; ?>">
-              <div>
-                <?php echo $content; ?>
-              </div>
-            </div>
-          </div>
 
+          <section class="section section--just-text">
+            <div class="block block--just-text <?php echo $minHeightClass; ?>">
+              <?php if($isSmall): ?>
+
+                <div class="just-text just-text--small">
+                  <div>
+                    <?php echo $content; ?>
+                  </div>
+                </div>
+
+              <?php else: ?>
+
+              <div class="just-text <?php echo 'just-text--' . $contentCentering; ?>">
+                <?php if($cta): ?>
+                <div class="cta"><a href="<?php echo $cta ?>" class="btn btn--big" title="<?php echo $ctaLabel; ?>"><span><?php echo $ctaLabel; ?></span></a></div>
+                <?php endif; ?>
+                <div class="title">
+                  <?php echo $content; ?>
+                </div>
+              </div>
+
+              <?php endif; ?>
+
+            </div>
+          </section>
           
         <?php elseif(get_row_layout() == 'manifesto'): 
           $mainSentence = get_sub_field('main_sentence');
         ?>
-
+          <section class="section--manifesto-list">
             <div class="block block--manifesto-list">
               <div class="manifesto-list">
                 <h2 class="manifesto-list__title"><span><?php echo $mainSentence; ?></span></h2>
@@ -59,9 +76,9 @@
                 <?php endif; ?>
               </div>
             </div>
-
+          </section>
         <?php elseif(get_row_layout() == 'dropdowns'): ?>
-
+          <section class="section section--dropdowns">
             <div class="block block--dropdowns">
               <?php if( have_rows('dropdown') ): ?>
                 <ul class="dropdowns">
@@ -91,7 +108,7 @@
                 </ul>
               <?php endif; ?>
             </div>
-
+          </section>
         <?php elseif(get_row_layout() == 'pattern_title'): 
           $title = get_sub_field('title');
           $howManyLetter = strlen($title);
@@ -102,32 +119,20 @@
           $txtColor = get_sub_field('title_color');
           $imgPos = get_sub_field('alignment');
         ?>
-
-        <?php if($isH1): ?>
-          <header class="block block--title-pattern">
-        <?php else: ?>
-          <div class="block block--title-pattern">
-        <?php endif; ?>
-
-          <div class="title-pattern title-pattern--<?php echo $titleSize; ?> <?php echo $backgroundType; ?>" style="--how-many-letter: <?php echo $howManyLetter; ?>; --txtColor:<?php echo $txtColor; ?>">
-            <?php if($backgroundType == 'img'): ?>
-              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_url($img['alt']); ?>" class="title-pattern__img" style="--top-pos: <?php echo $imgPos . '%'; ?> ">
-            <?php endif; ?>
-            <?php if($isH1): ?>
-              <h1><?php echo $title; ?></h1>
-            <?php else: ?>
-              <h2><?php echo $title; ?></h2>
-            <?php endif; ?>
-          </div>
-
-        <?php if($isH1): ?>
-          </header>
-        <?php else: ?>
+        <div class="title-pattern title-pattern--<?php echo $titleSize; ?> <?php echo $backgroundType; ?>" style="--how-many-letter: <?php echo $howManyLetter; ?>; --txtColor:<?php echo $txtColor; ?>">
+          <?php if($backgroundType == 'img'): ?>
+            <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_url($img['alt']); ?>" class="title-pattern__img" style="--top-pos: <?php echo $imgPos . '%'; ?> ">
+          <?php endif; ?>
+          <?php if($isH1): ?>
+            <h1><?php echo $title; ?></h1>
+          <?php else: ?>
+            <h2><?php echo $title; ?></h2>
+          <?php endif; ?>
         </div>
-        <?php endif; ?>
-
         <?php elseif(get_row_layout() == 'underline_list'): ?>
-          <div class="block block--underline-list">
+          
+          <div class="section section--underline-list">
+            <div class="block block--underline-list">
 
             <?php if(have_rows('underline_list')): ?>
               <ul class="underline-list">
@@ -149,13 +154,14 @@
               </ul>
             <?php endif; ?>
 
+            </div>
           </div>
-
-        <?php elseif(get_row_layout() == 'brand_title'): 
-          $title = get_sub_field('title');  
-        ?>
-
-            <h2 class="block brand-title"><?php echo $title; ?></h2>
+          <?php elseif(get_row_layout() == 'brand_title'): 
+            $title = get_sub_field('title');  
+          ?>
+          <div class="block block--brand-title">
+            <h2 class="brand-title"><?php echo $title; ?></h2>
+          </div>
 
         <?php elseif(get_row_layout() == 'big_image'): 
           $images = get_sub_field('big_image');  
@@ -164,24 +170,16 @@
           <div class="block block--double-img">
               <?php if($images): ?>
               <div class="double-img">
-              <?php foreach( $images as $img ): ?>
+              <?php foreach( $images as $image ): ?>
                 <div class="double-img__item">
-                  <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_url($img['alt']); ?>">
+                  <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_url($image['alt']); ?>">
                 </div>
               <?php endforeach; ?>
 
               </div>
               <?php endif; ?>
             </div>
-        <?php elseif(get_row_layout() == 'small_image'): 
-          $img = get_sub_field('image');
-          $sizeClass = get_sub_field('size') == 'small' ? ' small-img--sm' : '';
-        ?>
-          <div class="block block--small-img">
-            <div class="small-img<?php echo $sizeClass; ?>">
-              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_url($img['alt']); ?>">
-            </div>
-          </div>
+
         <?php endif; ?>
       <?php endwhile; ?>
     <?php endif; ?>

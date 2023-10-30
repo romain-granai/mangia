@@ -35,8 +35,8 @@
 
 .region-slider__media {
     position: relative;
-    width: 20%;
-    left: 40%;
+    width: 30%;
+    left: 35%;
     aspect-ratio: 1;
     border-radius: 50%;
     border: 4px solid $black;
@@ -77,6 +77,14 @@
     @media (max-width: $lg){
         width: 40%;
         left: 30%;
+    }
+
+    @media (max-width: $md){
+        border: 3px solid $black;
+    }
+
+    @media (max-width: $sm){
+        border: 2px solid $black;
     }
 }
 
@@ -121,6 +129,11 @@
     @media (max-width: $lg){
         margin-bottom: .25em;
     }
+
+    @media (max-width: $sm){
+        @include fs-md;
+    }
+    
 }
 
 .region-slider__letter {
@@ -154,7 +167,7 @@
 
 .region-slider__circles {
     position: relative;
-    bottom: 0;
+    bottom: 1vw;
     width: 85%;
     aspect-ratio: 2/1;
     -webkit-user-select: none; /* Safari */

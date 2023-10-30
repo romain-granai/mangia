@@ -20,7 +20,7 @@
     border: none;
     border-bottom: 4px solid $black;
     cursor: pointer;
-    @include fs-xxl-clamp;
+    @include fs-xl-clamp;
 
     @media (max-width: $md){
         align-items: baseline;
