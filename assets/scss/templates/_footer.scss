@@ -223,7 +223,7 @@
 
 .footer__nl__title {
     order: 1;
-    white-space: nowrap;
+    // white-space: nowrap;
 
     @media (max-width: $lg){
         flex: 0 0 100%;
