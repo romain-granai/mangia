@@ -20,6 +20,7 @@
     border: none;
     border-bottom: 4px solid $black;
     cursor: pointer;
+    color: inherit;
     @include fs-xl-clamp;
 
     @media (max-width: $md){

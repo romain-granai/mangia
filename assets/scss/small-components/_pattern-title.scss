@@ -1,19 +1,6 @@
 .block--title-pattern {
-    // padding-left: 0;
-    // padding-right: 0;
-    padding: 0;
-}
-
-header.block--title-pattern {
-    
-    .title-pattern{
-        padding-top: 94px;
-
-        @media (max-width: $md){
-            padding-top: calc(85px + 1em);
-        }
-    }
-
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .title-pattern {
@@ -37,7 +24,6 @@ header.block--title-pattern {
         line-height: .75;
         margin-top: -.15em;
         z-index: 5;
-        word-wrap: break-word;
 
     }
 
