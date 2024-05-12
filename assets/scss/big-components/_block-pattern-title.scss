@@ -7,10 +7,10 @@
 header.block--title-pattern {
     
     .title-pattern{
-        padding-top: 94px;
+        padding: 94px 0;
 
         @media (max-width: $md){
-            padding-top: calc(85px + 1em);
+            padding: calc(85px + 1em) 0;
         }
     }
 
