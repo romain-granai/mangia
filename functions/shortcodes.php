@@ -16,7 +16,10 @@
             array(
                 'url' => null,
                 'label' => 'Ajouer un titre',
-                'size' => null
+                'size' => null,
+                'align' => 'center',
+                'target' => '_self',
+                'bg-shadow' => '#FFD12D'
             ),
             $atts
         );
@@ -24,8 +27,11 @@
         $url = $atts['url'];
         $label = $atts['label'];
         $sizeClass = $atts['size'] != null ? 'btn--big' : '';
+        $align = 'cta--' . $atts['align'];
+        $target = $atts['target'];
+        $bgShadow = $atts['bg-shadow'];
 
-        $return_string = '<div class="cta"><a href="'. $url .'" class="btn '. $sizeClass .'" title="'. $label .'"><span>'. $label .'</span></a></div>';
+        $return_string = '<div class="cta '. $align .'"><a href="'. $url .'" target="'. $target .'" class="btn '. $sizeClass .'" title="'. $label .'" style="--bg-shadow:'. $bgShadow .'"><span style="font-weight: 400">'. $label .'</span></a></div>';
 
         return $return_string;
     }

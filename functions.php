@@ -10,4 +10,3 @@ require_once('functions/shortcodes.php');
 
 require_once('custom-post/custom-post-product.php');
 
-?>
