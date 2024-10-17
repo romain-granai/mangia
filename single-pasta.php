@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <div data-barba="container" data-barba-namespace="single-product">
+
 
     <?php if (have_posts()) : ?>
 
@@ -13,7 +13,7 @@
             $weight = get_field('weight');
         ?>
 
-        <section class="section section--single-product">
+        <section class="section section--single-product" data-color="<?php echo $color; ?>">
             <div class="block block--single-product">
             <div class="single-product">
                 <div class="single-product__side single-product__side--media <?php echo $bgType; ?>" style="--color: <?php echo $color; ?>">
@@ -22,7 +22,7 @@
                             <div class="swiper-wrapper">
                             <?php foreach( $productImages as $image ): ?>
                                 <div class="swiper-slide">
-                                    <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
+                                    <div><img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>"></div>
                                 </div>
                             <?php endforeach; ?>
                             </div>
@@ -48,7 +48,7 @@
                         <?php the_content(); ?>
                     </div>
 
-                    <?php if( have_rows('manifesto_table') ): ?>
+                    <!-- <?php if( have_rows('manifesto_table') ): ?>
                     <div class="manifesto">
                         <?php while( have_rows('manifesto_table') ): the_row(); ?>
                         <div class="manifesto__col">
@@ -62,7 +62,7 @@
                         </div>
                         <?php endwhile; ?>
                     </div>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
                     
                     <?php if( have_rows('benefits_table') ): ?>
                         <div class="benefits">

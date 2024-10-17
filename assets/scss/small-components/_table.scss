@@ -33,7 +33,7 @@
     }
 
     .col {
-        padding: $gutter/2;
+        padding: $gutter/4 $gutter/2;
         flex: 1 1 50%;
     
         &:first-child {
@@ -139,5 +139,18 @@
     @media (max-width: $md){
         @include fs-xs;
     }
+}
+.woocommerce table {
+    // display: block;
+    // max-width: 100%;
+    // overflow-y: auto;
+
+    // -ms-overflow-style: none;
+    // scrollbar-width: none;
+
+    // &::-webkit-scrollbar { 
+    //     display: none;
+    // }
+    
 }
 

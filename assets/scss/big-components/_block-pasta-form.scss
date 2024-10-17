@@ -1,12 +1,7 @@
 .block--pasta-form {
-    padding: $gutter/4*9 $gutter;
-
+    
     .title {
         margin-bottom: $gutter/4*6;
-    }
-
-    @media (max-width: $sm){
-        padding: $gutter $gutter/2;
     }
 }
 
@@ -58,7 +53,7 @@
     }
 
     [type="checkbox"] {
-        display: none;
+        display: none!important;
 
         &:checked + .wpcf7-list-item-label:before {
             background-color: $yellow;
@@ -72,7 +67,8 @@
         width: 100%;
         text-transform: uppercase;
         font-family: $font-brand;
-        @include fs-xxxl-clamp;
+        // @include fs-xxxl-clamp;
+        font-size: clamp(5rem,5vw,10rem);
         border-bottom: 4px solid $black;
         padding-bottom: .25em;
         cursor: pointer;
@@ -155,6 +151,11 @@
             text-align: right;
             transform: none;
         }
+    }
+
+    .wpcf7-not-valid-tip {
+        padding: $gutter/4 0 0 0!important;
+        @include fs-xs;
     }
 
     [type="checkbox"]:checked + .wpcf7-list-item-label .letter-measure {

@@ -1,35 +1,26 @@
 <?php get_header(); ?>
 
-  <div data-barba="container" data-barba-namespace="page">
+  
     <main class="main">
-    <?php if( have_rows('blocks') ): ?>
-      <?php while( have_rows('blocks') ): the_row(); ?>
+      
+    <?php content_blocks(); ?>
 
-        <?php if( get_row_layout() == 'text' ): 
-          $content = get_sub_field('content');  
-          $cta = get_sub_field('cta');
-          $ctaLabel = get_sub_field('cta_label');
-        ?>
-
-          <section class="section section--just-text">
-            <div class="block block--just-text">
-              <div class="just-text">
-                <?php if($cta): ?>
-                <div class="cta"><a href="<?php echo $cta ?>" class="btn btn--big" title="<?php echo $ctaLabel; ?>"><span><?php echo $ctaLabel; ?></span></a></div>
-                <?php endif; ?>
-                <div class="title">
-                  <?php echo $content; ?>
-                </div>
-              </div>
-            </div>
-          </section>
-          
-        <?php elseif(get_row_layout() == 'paragraph'): ?>
-
-        <?php endif; ?>
-      <?php endwhile; ?>
+    <?php if ( !empty( get_the_content() ) ): ?>
+      <?php if( is_cart() || is_checkout() || is_account_page() ): ?>
+        <?php echo the_content(); ?>
+      <?php else: ?>
+        <section class="section section--the-content">
+        <div class="block block--the-content">
+          <div class="the_content">
+            <?php echo the_content(); ?>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>  
     <?php endif; ?>
+
+
     </main>
-  </div>
+  
 
 <?php get_footer(); ?>

@@ -17,6 +17,7 @@
 @import "small-components/_table";
 @import "small-components/_manifesto-table";
 @import "small-components/_benefits";
+@import "small-components/_form";
 
 @import "big-components/_topbar";
 @import "big-components/_block";
@@ -31,8 +32,20 @@
 @import "big-components/_block-popup";
 @import "big-components/_block-compare";
 @import "big-components/_block-404";
+@import "big-components/_block-manifesto-list";
+@import "big-components/_block-the-content";
+@import "big-components/_block-dropdowns";
+@import "big-components/_block-underline-list";
+@import "big-components/_block-brand-title";
+@import "big-components/_block-pattern-title";
+@import "big-components/_block-double-img";
+@import "big-components/_block-small-img";
+@import "big-components/_product-list";
+@import "big-components/_wc-block-admin";
+
 
 @import "templates/_header";
 @import "templates/_main";
 @import "templates/_section";
+@import "templates/_checkout";
 @import "templates/_footer";

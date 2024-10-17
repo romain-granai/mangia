@@ -10,6 +10,32 @@ function mangia_crypt_email( $atts , $content = null ) {
 }
 add_shortcode( 'email', 'mangia_crypt_email' );
 
+function isLightOrDark($hexColor) {
+    // Remove the '#' character if it's present
+    $hexColor = ltrim($hexColor, '#');
+
+    // Convert hex to RGB
+    if (strlen($hexColor) == 6) {
+        $r = hexdec(substr($hexColor, 0, 2));
+        $g = hexdec(substr($hexColor, 2, 2));
+        $b = hexdec(substr($hexColor, 4, 2));
+    } elseif (strlen($hexColor) == 3) {
+        // Short hex format: #FFF
+        $r = hexdec(str_repeat(substr($hexColor, 0, 1), 2));
+        $g = hexdec(str_repeat(substr($hexColor, 1, 1), 2));
+        $b = hexdec(str_repeat(substr($hexColor, 2, 1), 2));
+    } else {
+        // Invalid hex format
+        return null; // or throw an exception
+    }
+
+    // Calculate the luminance
+    $luminance = (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    // Determine if the color is light or dark
+    return ($luminance >= 128) ? 'light' : 'dark';
+};
+
 // // RGPD
 
 // // use priority 11 to be called after CF7 registered filter,

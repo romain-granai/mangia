@@ -1,6 +1,6 @@
 <?php 
     $args = array(
-        'post_type' => 'product',
+        'post_type' => 'pasta',
         'posts_per_page' => -1,
         'orderby'=>'menu_order', 
         'order' => 'ASC'

@@ -1,0 +1,126 @@
+ul.products {
+    @include clean-list;
+    display: grid;
+    gap: $gutter;
+    // padding: $gutter/4*9 $gutter;
+
+    &.columns-2 {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    &.columns-3 {
+        grid-template-columns: repeat(3, 1fr); 
+
+        @media (max-width: $lg){
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        @media (max-width: $sm){
+            grid-template-columns: 1fr; 
+        }
+    }
+
+    &.columns-4 {
+        grid-template-columns: repeat(4, 1fr); 
+
+        @media (max-width: $xl){
+            grid-template-columns: repeat(3, 1fr); 
+        }
+
+        @media (max-width: $lg){
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        @media (max-width: $sm){
+            grid-template-columns: 1fr; 
+        }
+    }
+
+    &.columns-5 {
+        grid-template-columns: repeat(5, 1fr); 
+
+        @media (max-width: $xl){
+            grid-template-columns: repeat(4, 1fr); 
+        }
+
+        @media (max-width: $lg){
+            grid-template-columns: repeat(3, 1fr); 
+        }
+
+        @media (max-width: $md){
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        @media (max-width: $sm){
+            grid-template-columns: 1fr; 
+        }
+    }
+
+    li {
+        container-type: inline-size;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .button {
+        display: none;
+    }
+
+    img {
+        display: block;
+        border-radius: 3cqw;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    h2 {
+        margin-top: .75em;
+        text-align: center;
+        font-size: min(8cqw,4rem);
+    }
+
+    .price {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-weight: 200;
+        @include fs-xs;
+        font-size: clamp(1.2rem, 4cqw, 2rem);
+    }
+
+    // @media (max-width: $sm){
+    //     padding: $gutter/2 $gutter/2;
+    // }
+}
+
+.woocommerce-shop .site-main {
+    padding: $gutter/4*9 $gutter;
+
+    @media (max-width: $sm){
+        padding: $gutter/2 $gutter/2;
+    }
+}
+
+section.related.products {
+    padding: $gutter/4*9 $gutter;
+
+    h2 {
+        margin-bottom: 1em;
+    }
+
+    @media (max-width: $sm){
+        padding: $gutter/2 $gutter/2;
+    }
+}
+
+ul.product {
+    img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+    }
+
+}

@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-  <div data-barba="container" data-barba-namespace="four-o-four">
     <main class="main">
         <section class="section section--viewport-full section--four-o-four">
             <div class="block block--four-o-four">

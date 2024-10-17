@@ -28,4 +28,3 @@ function mangia_custom_post_types_product() {
 }
 add_action( 'init', 'mangia_custom_post_types_product' );
 
-?>

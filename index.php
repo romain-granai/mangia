@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <div data-barba="container" data-barba-namespace="home">
+  
 
     <?php get_template_part( 'template-parts/header-home'); ?>
 

@@ -29,6 +29,10 @@
     margin-bottom: -6rem;
     @include fs-sm;
 
+    a {
+        color: inherit;
+    }
+
     @media (max-width: $md){
         @include fs-xs;
     }
@@ -219,7 +223,8 @@
 
 .footer__nl__title {
     order: 1;
-    white-space: nowrap;
+    flex: 0 0 max-content;
+    // white-space: nowrap;
 
     @media (max-width: $lg){
         flex: 0 0 100%;

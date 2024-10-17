@@ -14,6 +14,42 @@
     }
 }
 
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gutter/4;
+    justify-content: center;
+}
+
 .btn {
+    @include btn;
+}
+
+.cky-consent-bar .cky-banner-btn-close {
+    right: 10px!important;
+    top: 10px!important;
+}
+
+.wc-block-components-spinner {
+    display: none!important;
+}
+
+.woocommerce-button,
+.woocommerce a.button,
+.button,
+.single_add_to_cart_button,
+.components-button,
+.wc-block-components-button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt, 
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt, 
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt {
     @include btn;
 }

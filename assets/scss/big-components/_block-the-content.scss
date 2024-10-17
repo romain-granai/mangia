@@ -1,0 +1,17 @@
+.block--the-content {
+    display: flex;
+    justify-content: center;
+    padding: calc($gutter/4*9 + 95px) $gutter $gutter/4*9;
+
+    p {
+        font-weight: 200;
+    }
+
+    @media (max-width: $sm){
+        padding: calc($gutter/4*9 + 95px)  $gutter/2 $gutter/4*9;
+    }
+}
+
+.the_content {
+    max-width: 800px;
+}

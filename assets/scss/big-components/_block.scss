@@ -1,0 +1,19 @@
+.block {
+    padding: $gutter/4*9 $gutter;
+
+    &:not(.block--title-pattern) + .block {
+        padding-top: 0;
+    }
+
+    .single-product__side--text & {
+        padding-inline: 0;
+    }
+
+    @media (max-width: $md){
+        padding: $gutter/2*3 $gutter;
+    }
+
+    @media (max-width: $sm){
+        padding: $gutter $gutter/2;
+    }
+}

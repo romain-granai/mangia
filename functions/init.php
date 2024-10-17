@@ -5,6 +5,7 @@
 // Gestion du <title> par WP
 	add_theme_support( 'title-tag' );
 
+	add_theme_support( 'post-thumbnails' ); 
 // // Définition des ID de pages pour un accès plus facile
 
 	// define('ID_HOME', 6);

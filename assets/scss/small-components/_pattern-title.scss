@@ -1,0 +1,66 @@
+.block--title-pattern {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.title-pattern {
+    --how-many-letter: 0;
+    --txtColor: $black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    font-family: $font-brand;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em 0;
+    color: var(--txtColor);
+
+    h1, h2, h3 {
+        position: relative;
+        line-height: .75;
+        margin-top: -.15em;
+        z-index: 5;
+
+    }
+
+    &--sm {
+        @include fs-xxxl-clamp;
+    }
+
+    &--lg {
+        @include fs-biggest-clamp;
+    }
+
+    &--adaptive {
+        font-size: calc(100vw / (var(--how-many-letter) - .5));
+    }
+
+    // &:first-child {
+    //     padding-top: 94px;
+
+    //     @media (max-width: $md){
+    //         padding-top: 85px;
+    //     }
+    // }
+
+    @media (orientation: portrait){
+        min-height: 50vh;
+        min-height: 50svh;
+    }
+}
+
+.title-pattern__img {
+    --top-pos: 50%;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center var(--top-pos);
+}
