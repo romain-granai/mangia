@@ -167,6 +167,8 @@
         background: var(--color, $yellow);
         color: var(--txt-color, $black);
         border-radius: $gutter/2;
+        box-shadow: 0 0 10px 10px #00000012;
+        border: 6px solid white;
     }
 
     select {
