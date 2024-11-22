@@ -134,6 +134,10 @@
         margin-bottom: 5rem;
     }
 
+    .woocommerce-variation {
+        @include fs-lg;
+    }
+
     .woocommerce-variation-price,
     .woocommerce-info {
         display: block;
@@ -175,6 +179,7 @@
         padding: .5em;
         background-position-y: 7px;
         border: none;
+        border-radius: .75rem;
     }
 
     @media (orientation: portrait) {
